@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Motion Design para Instagram | YAN EPIFANIO</title>
+<meta name="description" content="Motion para Instagram que prende atenção e engaja."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://yan-in.github.io/yan-motion-site/"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta property="og:title" content="Motion Design para Instagram | YAN EPIFANIO"/>
+<meta property="og:description" content="Motion para Instagram que prende atenção e engaja."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#050505;
+  --bg2:#121212;
+  --bg3:#1A1A1A;
+  --ink:#FFFFFF;
+  --ink2:rgba(255,255,255,0.74);
+  --ink3:rgba(255,255,255,0.48);
+  --chrome:rgba(255,255,255,0.18);
+  --chrome2:rgba(255,255,255,0.10);
+  --brd:rgba(255,255,255,0.12);
+  --brd2:rgba(255,255,255,0.08);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;position:relative;}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  opacity:.08;mix-blend-mode:overlay;
+}
+
+/* CASE MODAL */
+.case-modal{position:fixed;inset:0;z-index:2500;background:rgba(0,0,0,0.65);display:none;align-items:center;justify-content:center;padding:20px;}
+.case-modal.open{display:flex;}
+.case-modal-inner{position:relative;background:var(--bg);border:1px solid rgba(255,255,255,0.12);border-radius:10px;width:min(980px,100%);max-height:82vh;overflow:auto;}
+.case-close{position:absolute;top:10px;right:10px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.06);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;z-index:10;}
+.case-frame{padding:52px 18px 18px;}
+.case-frame iframe,.case-frame video{width:100%;height:auto;display:block;max-height:70vh;}
+
+/* NAV */
+nav{
+  display:flex;align-items:center;justify-content:space-between;padding:22px 60px;
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(5,5,5,0.72);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0);transition:.3s;
+}
+nav.scrolled{border-bottom-color:var(--brd);}
+.logo{font-size:14px;font-weight:700;color:var(--ink);letter-spacing:2.4px;text-transform:uppercase;}
+.nav-menu{display:flex;gap:28px;list-style:none;}
+.nav-menu a{font-size:12px;font-weight:600;color:var(--ink2);text-decoration:none;letter-spacing:1px;transition:.15s;}
+.nav-menu a:hover{color:var(--ink);}
+.nav-hire{
+  font-size:12px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.28);padding:9px 18px;border-radius:999px;
+  color:var(--ink);text-decoration:none;transition:.2s;position:relative;overflow:hidden;
+}
+.nav-hire::after{
+  content:'';position:absolute;inset:-40%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.22),transparent);
+  transform:translateX(-40%);transition:.55s;
+}
+.nav-hire:hover{background:rgba(255,255,255,0.06);}
+.nav-hire:hover::after{transform:translateX(40%);}
+
+/* MOBILE MENU */
+#menu-toggle{display:none;background:none;border:none;color:var(--ink);cursor:pointer;font-size:22px;line-height:1;padding:8px 10px;}
+#menu-toggle:focus{outline:2px solid var(--ink);outline-offset:2px;}
+@media(max-width:768px){
+  .nav-menu{display:none;}
+  #menu-toggle{display:flex;align-items:center;justify-content:center;}
+  #mobile-menu-overlay{
+    position:fixed;inset:0;z-index:1400;display:none;
+    background:rgba(0,0,0,0.62);backdrop-filter:blur(8px);
+  }
+  #mobile-menu-overlay.open{display:block;}
+  #mobile-menu{
+    position:absolute;top:0;right:0;height:100%;width:min(320px,86vw);
+    background:rgba(5,5,5,0.92);border-left:1px solid rgba(255,255,255,0.10);
+    transform:translateX(100%);transition:transform .28s ease;
+    display:flex;flex-direction:column;gap:18px;padding:24px 18px;
+  }
+  #mobile-menu-overlay.open #mobile-menu{transform:translateX(0);}
+  #mobile-menu .m-links{display:flex;flex-direction:column;gap:12px;}
+  #mobile-menu .m-links a{
+    font-size:14px;font-weight:800;color:var(--ink2);
+    text-decoration:none;letter-spacing:1px;padding:10px 12px;border-radius:10px;
+    border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);
+  }
+  #mobile-menu .m-links a:hover{color:var(--ink);border-color:rgba(255,255,255,0.18);}
+}
+
+/* HERO */
+#hero{
+  min-height:78vh;display:flex;align-items:center;
+  padding:96px 60px 56px;position:relative;border-bottom:1px solid var(--brd);
+  overflow:hidden;background:#050505;
+}
+#hero::before{
+  content:'';position:absolute;inset:-2px;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(900px 600px at 15% 25%, rgba(0,0,0,0.6), transparent 70%),
+    radial-gradient(700px 520px at 75% 30%, rgba(0,0,0,0.6), transparent 70%);
+}
+.hero-num{
+  position:absolute;top:50%;left:60px;transform:translateY(-50%);
+  font-size:210px;font-weight:800;color:rgba(255,255,255,0.06);
+  line-height:1;pointer-events:none;user-select:none;letter-spacing:-6px;z-index:1;
+}
+@media(max-width:500px){ .hero-num{display:none;} }
+
+.hero-wrapper{
+  position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:60px;
+}
+.hero-text{flex:1;max-width:780px;}
+.hero-video-side{
+  flex:0 0 45%;max-width:45%;width:100%;
+  display:flex;justify-content:center;align-items:center;
+}
+.hero-main-video{
+  width:100%;height:auto;max-height:720px;border-radius:24px;
+  object-fit:cover;box-shadow:0 40px 90px rgba(0,0,0,0.35);
+  background:#050505;border:0;
+}
+.hero-avail{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(255,255,255,0.16);padding:8px 14px;border-radius:999px;
+  font-size:12px;font-weight:800;letter-spacing:2px;color:var(--ink2);margin-bottom:28px;text-transform:uppercase;
+  background:rgba(0,0,0,0.3);backdrop-filter:blur(4px);
+}
+.hero-avail::before{content:'';width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.14);box-shadow:0 0 0 3px rgba(255,255,255,0.05);flex-shrink:0;}
+.hero-h1{
+  font-size:clamp(56px, 8vw, 110px);
+  font-weight:800;line-height:0.92;color:var(--ink);letter-spacing:-3px;
+  margin-bottom:24px;max-width:620px;
+}
+.hero-p{
+  font-size:24px;line-height:1.45;color:rgba(255,255,255,0.7);
+  font-weight:600;max-width:620px;margin-bottom:32px;
+}
+.hero-subline{
+  font-size:16px;font-weight:700;color:var(--ink3);
+  margin-top:24px;display:flex;gap:16px;align-items:center;
+}
+.hero-subline .typing{
+  color:var(--ink);font-weight:800;
+  border-right:2px solid var(--ink);padding-right:6px;
+  animation: blink .8s step-end infinite;
+}
+@keyframes blink{50%{border-color:transparent;}}
+
+.hero-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;}
+.cta-primary,.cta-secondary{
+  display:inline-block;padding:14px 28px;font-size:15px;font-weight:800;
+  letter-spacing:1px;text-transform:uppercase;text-decoration:none;
+  border-radius:999px;transition:.3s;
+}
+.cta-primary{background:#fff;color:#000;border:1px solid #fff;}
+.cta-primary:hover{background:#e0e0e0;}
+.cta-secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);}
+.cta-secondary:hover{background:rgba(255,255,255,0.08);}
+
+@media(max-width:900px){
+  #hero{min-height:auto;padding:100px 24px 60px;}
+  .hero-wrapper{flex-direction:column;align-items:center;gap:32px;text-align:center;}
+  .hero-text{max-width:100%;width:100%;}
+  .hero-video-side{flex:0 0 auto;max-width:min(360px,100%);width:100%;margin:0 auto;}
+  .hero-p{max-width:100%;}
+  .hero-num{font-size:100px;left:16px;}
+  .hero-links{justify-content:center;}
+}
+
+/* SERVICES */
+#services{padding:88px 60px;border-bottom:1px solid var(--brd);position:relative;}
+#services::after{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--chrome),transparent);pointer-events:none;}
+.services-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;gap:20px;}
+.sec-eyebrow{font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;}
+.sec-h{font-size:clamp(34px,4.2vw,58px);font-weight:900;line-height:1.02;color:var(--ink);letter-spacing:-1px;}
+.sec-h em{font-style:normal;color:var(--ink2);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+.svc-card{
+  position:relative;padding:32px 24px 36px;
+  background:linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border:1px solid var(--brd);border-radius:12px;transition:transform .3s,box-shadow .3s;
+  backdrop-filter:blur(2px);display:flex;flex-direction:column;
+}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.card-badge{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;}
+.card-badge.highlight{color:var(--ink);background:rgba(255,255,255,0.06);padding:4px 12px;border-radius:999px;display:inline-block;width:fit-content;}
+.card-badge.premium{color:var(--ink);border:1px solid var(--brd);padding:4px 12px;border-radius:999px;display:inline-block;width:fit-content;}
+.card-title{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-0.5px;margin:4px 0 2px;}
+.pro-card .card-title{font-size:30px;}
+.card-pricing{display:flex;align-items:baseline;gap:6px;margin:12px 0 16px;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);padding:16px 0;}
+.price{font-size:38px;font-weight:900;color:var(--ink);}
+.period{font-size:14px;color:var(--ink3);font-weight:500;}
+.card-features{list-style:none;padding:0;margin:12px 0 20px;display:flex;flex-direction:column;gap:10px;}
+.card-features li{font-size:15px;color:var(--ink2);display:flex;align-items:center;gap:10px;font-weight:600;}
+.check{color:var(--ink);font-weight:900;font-size:18px;flex-shrink:0;width:24px;text-align:center;}
+.card-btn{
+  display:inline-block;width:100%;text-align:center;padding:14px 20px;
+  font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1px;
+  color:var(--ink);background:rgba(255,255,255,0.04);border:1px solid var(--brd);border-radius:999px;
+  text-decoration:none;transition:all .3s;position:relative;overflow:hidden;margin-top:auto;
+}
+.card-btn:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,255,255,0.05);}
+.card-btn::before,.card-btn::after{content:'';position:absolute;top:0;width:100%;height:100%;transition:all .4s;pointer-events:none;}
+.card-btn::before{left:0;background:radial-gradient(circle at 0% 45%, rgba(255,255,255,0.08) 0%, transparent 70%);}
+.card-btn::after{right:0;background:radial-gradient(circle at 100% 45%, rgba(255,255,255,0.08) 0%, transparent 70%);}
+.card-btn:hover::before,.card-btn:hover::after{width:0;opacity:0;}
+.pro-card{background:#FAFAFA !important;border-color:rgba(0,0,0,0.08) !important;color:#1a1a1a !important;box-shadow:0 20px 60px rgba(0,0,0,0.15);}
+.pro-card .card-title{color:#1a1a1a;}
+.pro-card .price{color:#1a1a1a;}
+.pro-card .period{color:#555;}
+.pro-card .card-features li{color:#2a2a2a;}
+.pro-card .check{color:#1a1a1a;}
+.pro-card .card-badge{color:#555;}
+.pro-card .card-btn{background:#1a1a1a;color:#fff;border-color:#1a1a1a;}
+.pro-card .card-btn:hover{background:#2a2a2a;box-shadow:0 8px 30px rgba(0,0,0,0.2);}
+.pro-card .card-btn::before,.pro-card .card-btn::after{background:radial-gradient(circle at 0% 45%, rgba(255,255,255,0.15) 0%, transparent 70%);}
+
+/* WORK */
+#work{padding:88px 60px;border-bottom:1px solid var(--brd);}
+.work-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  justify-content:center;gap:20px;margin:36px auto 0;max-width:980px;
+}
+.work-item{
+  background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.10);
+  border-radius:14px;overflow:hidden;position:relative;cursor:pointer;
+}
+.work-item::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,0.58));
+  opacity:0;transition:opacity .25s;pointer-events:none;
+}
+.work-item:hover::after{opacity:1;}
+.wi-media{position:relative;width:100%;aspect-ratio:9/16;background:rgba(0,0,0,0.08);}
+.wi-media video{width:100%;height:100%;object-fit:cover;display:block;transform:translateZ(0);}
+.wi-body{position:absolute;left:0;right:0;bottom:0;padding:22px 20px 18px;}
+.wi-cat{font-size:10px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;}
+.wi-title{font-size:20px;font-weight:900;color:var(--ink);line-height:1.25;letter-spacing:-0.2px;text-transform:uppercase;}
+
+/* ABOUT */
+#about{
+  padding:88px 60px;border-bottom:1px solid var(--brd);
+  display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;position:relative;
+}
+#about::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 10% 15%, rgba(255,255,255,0.06), transparent 60%),radial-gradient(520px 300px at 90% 60%, rgba(255,255,255,0.035), transparent 65%);pointer-events:none;opacity:0.8;}
+.about-img-w{position:relative;z-index:1;text-align:center;}
+.about-img{
+  width:100%;max-width:400px;aspect-ratio:4/5;object-fit:cover;display:inline-block;
+  filter:grayscale(15%) contrast(1.05) brightness(0.92);
+  border:1px solid rgba(255,255,255,0.10);border-radius:6px;
+}
+.about-img-caption{font-size:11px;color:var(--ink3);letter-spacing:1px;margin-top:12px;font-weight:800;text-transform:uppercase;}
+.about-r{position:relative;z-index:1;}
+.about-h{font-size:clamp(34px,4.6vw,56px);font-weight:900;line-height:1.02;margin-bottom:24px;letter-spacing:-1px;}
+.about-h em{font-style:normal;color:var(--ink2);}
+.about-p{font-size:15px;line-height:1.9;color:var(--ink2);margin-bottom:16px;font-weight:500;}
+.about-facts{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  margin-top:40px;padding-top:30px;border-top:1px solid var(--brd);
+}
+.fact-l{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;}
+.fact-v{font-size:14px;font-weight:900;color:var(--ink);letter-spacing:0.2px;}
+
+/* TESTIMONIALS */
+.testimonials{padding:72px 60px 80px;border-bottom:1px solid var(--brd);}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+.test-card{background:rgba(255,255,255,0.03);border:1px solid var(--brd);padding:28px;border-radius:12px;transition:.3s;}
+.test-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-4px);}
+.test-stars{color:#FBBF24;font-size:20px;letter-spacing:4px;margin-bottom:12px;}
+.test-text{font-size:16px;line-height:1.7;color:var(--ink2);margin-bottom:16px;font-style:italic;}
+.test-author{display:flex;align-items:center;gap:14px;}
+.test-name{font-weight:700;font-size:15px;color:var(--ink);}
+.test-role{font-size:13px;color:var(--ink3);}
+
+/* CONTACT */
+#contact{
+  padding:64px 60px 84px;display:flex;flex-direction:column;
+  align-items:center;text-align:center;position:relative;
+}
+#contact::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent 45%),radial-gradient(900px 400px at 50% 0%, rgba(255,255,255,0.06), transparent 60%);pointer-events:none;opacity:.9;}
+.contact-h{
+  font-size:clamp(52px,7vw,96px);font-weight:900;line-height:.95;
+  margin-bottom:24px;letter-spacing:-3px;max-width:900px;position:relative;z-index:1;
+}
+.contact-h em{font-style:normal;color:var(--ink2);}
+.contact-p{
+  font-size:20px;color:rgba(255,255,255,0.72);line-height:1.6;
+  max-width:680px;margin:0 auto 36px;position:relative;z-index:1;
+}
+.btn-whatsapp{
+  display:inline-flex;align-items:center;gap:18px;
+  background:#25D366;color:#fff;font-weight:800;font-size:18px;
+  padding:18px 36px;border-radius:999px;text-decoration:none;
+  transition:all .3s;box-shadow:0 12px 38px rgba(37,211,102,0.22);
+  margin:0 0 22px;
+}
+.btn-whatsapp:hover{transform:scale(1.04);box-shadow:0 8px 30px rgba(37,211,102,0.3);}
+.btn-whatsapp .wa-number{font-weight:400;font-size:14px;opacity:0.9;}
+.checklist{
+  margin-top:18px;display:inline-flex;gap:18px;color:var(--ink2);
+  flex-wrap:wrap;justify-content:center;font-size:13px;
+}
+.socials{
+  display:flex;gap:18px;flex-wrap:wrap;justify-content:center;
+  margin-top:36px;padding-top:24px;border-top:1px solid var(--brd);
+  position:relative;z-index:1;
+}
+.soc{
+  font-size:12px;font-weight:900;letter-spacing:1px;color:var(--ink2);
+  text-decoration:none;transition:.2s;text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.10);padding:10px 14px;border-radius:999px;
+  background:rgba(255,255,255,0.02);
+}
+.soc:hover{color:var(--ink);border-color:rgba(255,255,255,0.3);}
+
+/* URGENCY & FOOTER */
+.urgency-block{padding:36px 60px;background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.04);}
+footer{padding:24px 60px;border-top:1px solid var(--brd);display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--ink3);}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s;}
+.reveal.on{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:1200px){.work-grid{grid-template-columns:repeat(2,minmax(240px,1fr));}}
+@media(max-width:900px){
+  .services-grid,.work-grid,.test-grid{grid-template-columns:1fr;}
+  #about{grid-template-columns:1fr;gap:40px;}
+  nav,section,#about,#hero{padding-left:24px;padding-right:24px;}
+  .svc-card{transform:none !important;}
+  .test-text{font-size:15px;}
+}
+
+/* CORREÇÃO LINKS AZUIS */
+a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.nav-hire):not(.soc){
+  color:inherit;
+}
+.work-item button{color:#fff !important;}
+</style>
+</head>
+<body>
+
+<!-- CASE MODAL -->
+<div id="case-modal" class="case-modal">
+  <div class="case-modal-inner" role="dialog" aria-modal="true" aria-label="Case do portfólio">
+    <button class="case-close" type="button" onclick="closeCase()" aria-label="Fechar">✕</button>
+    <div class="case-frame" id="case-frame"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Menu principal">
+  <div class="logo">YAN EPIFANIO</div>
+  <button id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu-overlay" aria-expanded="false" onclick="toggleMobileMenu(true)">☰</button>
+  <ul class="nav-menu">
+    <li><a href="#services">Planos</a></li>
+    <li><a href="#work">Projetos</a></li>
+    <li><a href="#about">Sobre</a></li>
+    <li><a href="#testimonials">Depoimentos</a></li>
+    <li><a href="#contact">Contato</a></li>
+  </ul>
+</nav>
+
+<div id="mobile-menu-overlay" aria-hidden="true">
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+    <button class="case-close" type="button" onclick="toggleMobileMenu(false)" aria-label="Fechar menu">✕</button>
+    <div class="m-links">
+      <a href="#services" onclick="toggleMobileMenu(false)">Planos</a>
+      <a href="#work" onclick="toggleMobileMenu(false)">Projetos</a>
+      <a href="#about" onclick="toggleMobileMenu(false)">Sobre</a>
+      <a href="#testimonials" onclick="toggleMobileMenu(false)">Depoimentos</a>
+      <a href="#contact" onclick="toggleMobileMenu(false)">Contato</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-wrapper">
+    <div class="hero-text">
+      <div class="hero-avail">MOTION PARA INSTAGRAM</div>
+      <h1 class="hero-h1">Motion que faz o scroll parar.</h1>
+      <p class="hero-p reveal">Motion para marcas que querem parar o scroll e parecer maiores no digital.</p>
+      <div class="hero-links reveal">
+        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20um%20or%C3%A7amento%20gratuito" class="cta-primary">Falar no WhatsApp</a>
+        <a href="#work" class="cta-secondary">Ver Cases</a>
+      </div>
+      <div class="hero-subline">
+        <span>Conteúdo com movimento, do jeito certo</span>
+        <span class="typing" id="typing-text" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="hero-video-side">
+      <video class="hero-main-video" muted loop autoplay playsinline preload="metadata">
+        <source src="assets/videos/motion.webm" type="video/webm"/>
+        <source src="assets/videos/motion.mp4" type="video/mp4"/>
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-top">
+    <div>
+      <div class="sec-eyebrow">Pacotes de motion para Instagram</div>
+      <h2 class="sec-h reveal">Escolha seu ritmo<br><em>e apareça melhor</em></h2>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card starter-card reveal">
+      <div class="card-content">
+        <div class="card-badge">STARTER</div>
+        <div class="card-title">Starter</div>
+        <div class="card-pricing">
+          <span class="price">R$97</span>
+          <span class="period">/mês</span>
+        </div>
+        <ul class="card-features">
+          <li><span class="check">✓</span> <span>3 motions para Stories</span></li>
+          <li><span class="check">✓</span> <span>Entrega mensal</span></li>
+          <li><span class="check">✓</span> <span>Ajustes básicos</span></li>
+          <li><span class="check">✓</span> <span>Ideal pra começar</span></li>
+        </ul>
+        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20STARTER" class="card-btn">Quero este plano</a>
+      </div>
+    </div>
+    <div class="svc-card pro-card reveal">
+      <div class="card-content">
+        <div class="card-badge highlight">PRO</div>
+        <div class="card-title">Pro</div>
+        <div class="card-pricing">
+          <span class="price">R$197</span>
+          <span class="period">/mês</span>
+        </div>
+        <ul class="card-features">
+          <li><span class="check">✓</span> <span>4 motions para Feed</span></li>
+          <li><span class="check">✓</span> <span>3 motions para Stories</span></li>
+          <li><span class="check">✓</span> <span>Prioridade na entrega</span></li>
+          <li><span class="check">✓</span> <span>Melhor custo-benefício</span></li>
+        </ul>
+        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20PRO" class="card-btn">Quero este plano</a>
+      </div>
+    </div>
+    <div class="svc-card business-card reveal">
+      <div class="card-content">
+        <div class="card-badge premium">BUSINESS</div>
+        <div class="card-title">Business</div>
+        <div class="card-pricing">
+          <span class="price">R$397</span>
+          <span class="period">/mês</span>
+        </div>
+        <ul class="card-features">
+          <li><span class="check">✓</span> <span>4 motions para Reels</span></li>
+          <li><span class="check">✓</span> <span>4 motions para Feed</span></li>
+          <li><span class="check">✓</span> <span>3 motions para Stories</span></li>
+          <li><span class="check">✓</span> <span>Planejamento visual</span></li>
+          <li><span class="check">✓</span> <span>Atendimento prioritário</span></li>
+        </ul>
+        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20BUSINESS" class="card-btn">Quero este plano</a>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:48px;padding:24px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:6px;text-align:center;">
+    <div style="font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:8px;">
+      <strong>Orçamento gratuito incluso. Revisões alinhadas no Pro e Business.</strong>
+    </div>
+    <div style="font-size:12px;color:var(--ink3);letter-spacing:0.5px;">
+      Você manda seu conteúdo e eu retorno com um caminho claro pra seu Instagram.
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="sec-eyebrow">Casos em vídeo</div>
+  <h2 class="sec-h reveal" style="margin-bottom:0">Motion para Instagram<br><em>com presença</em></h2>
+  <p class="about-p reveal" style="margin-top:18px;max-width:760px;">
+    Stories, Reels e Feed com animações modernas e edição profissional — pensadas pra prender atenção e valorizar sua marca.
+  </p>
+
+  <div class="work-grid">
+    <div class="work-item reveal" onclick="openCase({type:'video',src:'assets/videos/academia.webm'})" role="button" tabindex="0" aria-label="Abrir caso Academia">
+      <div class="wi-media">
+        <video muted loop autoplay playsinline preload="metadata">
+          <source src="assets/videos/academia.webm" type="video/webm"/>
+        </video>
+      </div>
+      <div class="wi-body">
+        <div class="wi-cat">Academia</div>
+        <div class="wi-title">Motion para Academia</div>
+      </div>
+    </div>
+
+    <div class="work-item reveal" onclick="openCase({type:'video',src:'assets/videos/pizzaria.webm'})" role="button" tabindex="0" aria-label="Abrir caso Pizzaria">
+      <div class="wi-media">
+        <video muted loop autoplay playsinline preload="metadata">
+          <source src="assets/videos/pizzaria.webm" type="video/webm"/>
+        </video>
+      </div>
+      <div class="wi-body">
+        <div class="wi-cat">Pizzaria</div>
+        <div class="wi-title">Motion para Pizzaria</div>
+      </div>
+    </div>
+
+    <div class="work-item reveal" onclick="openCase({type:'video',src:'assets/videos/casamento.webm'})" role="button" tabindex="0" aria-label="Abrir caso Casamento">
+      <div class="wi-media">
+        <video muted loop autoplay playsinline preload="metadata">
+          <source src="assets/videos/casamento.webm" type="video/webm"/>
+        </video>
+      </div>
+      <div class="wi-body">
+        <div class="wi-cat">Casamento</div>
+        <div class="wi-title">Motion para Casamento</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:60px;padding:28px 22px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-align:center;">
+    <div style="font-size:13px;color:var(--ink2);line-height:1.6;">
+      <strong>Gostou do que viu?</strong> Chama no WhatsApp e descubra como ficaria o seu conteúdo.
+    </div>
+    <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20saber%20como%20ficaria%20meu%20conte%C3%BAdo" style="display:inline-block;margin-top:14px;padding:10px 24px;background:rgba(255,255,255,0.06);border:1px solid var(--brd);border-radius:999px;color:var(--ink);font-weight:800;font-size:13px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:.2s;">Quero um motion assim →</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img-w reveal">
+    <img class="about-img" src="Assets\videos\assets\images\perfil.png" alt="Yan Epifanio — Perfil"/>
+    <div class="about-img-caption">YAN EPIFANIO — Motion & Instagram</div>
+  </div>
+  <div class="about-r reveal">
+    <div class="sec-eyebrow">SOBRE O TRABALHO</div>
+    <h2 class="about-h">Não faço apenas animações.<br><em>Faço seu perfil se destacar.</em></h2>
+    <p class="about-p">Sou especialista em motion design para redes sociais. Meu trabalho é dar vida ao seu conteúdo com animações envolventes e produção ágil, mantendo seu perfil sempre relevante e profissional.</p>
+    <p class="about-p">Cada animação é pensada para gerar retenção, engajamento e valorizar sua comunicação visual — entregando resultados rápidos sem complicação.</p>
+    <div class="about-facts">
+      <div><div class="fact-l">Foco Principal</div><div class="fact-v">Instagram (Feed, Stories, Reels)</div></div>
+      <div><div class="fact-l">Especialidade</div><div class="fact-v">Motion Design e Edição</div></div>
+      <div><div class="fact-l">Abordagem</div><div class="fact-v">Produção Ágil + Criatividade</div></div>
+      <div><div class="fact-l">Status</div><div class="fact-v">Aceitando novos clientes mensais</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="testimonials">
+  <div class="sec-eyebrow">Feedback</div>
+  <h2 class="sec-h reveal">Quando o motion acerta<br><em>fica impossível ignorar</em></h2>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">"Mudou completamente o visual do meu feed. O movimento chama atenção na hora."</div>
+      <div class="test-author">
+        <div class="test-name">Cliente</div>
+        <div class="test-role">Instagram</div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">"Stories ficaram com cara de marca grande, mas com um toque bem humano."</div>
+      <div class="test-author">
+        <div class="test-name">Cliente</div>
+        <div class="test-role">Stories</div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">"Reels com edição dinâmica e motion bem limpo. Ficou pronto rápido."</div>
+      <div class="test-author">
+        <div class="test-name">Cliente</div>
+        <div class="test-role">Reels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-eyebrow">Vamos conversar</div>
+  <h2 class="contact-h reveal">Quer ver seu conteúdo em movimento?</h2>
+  <p class="contact-p reveal">Animações que transformam posts comuns em conteúdo que prende atenção e gera mais resultado.</p>
+  <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20um%20or%C3%A7amento%20gratuito" class="btn-whatsapp reveal">
+     QUERO MEU ORÇAMENTO GRATUITO
+    <span class="wa-number">(85) 99614-9074</span>
+  </a>
+  <div class="checklist">✔ Orçamento gratuito &nbsp;&nbsp; ✔ Sem compromisso &nbsp;&nbsp; ✔ Resposta em até 24h</div>
+  <div class="socials reveal">
+    <a href="https://instagram.com/yan.epifanio" class="soc" target="_blank" rel="noreferrer">Instagram</a>
+    <a href="https://www.behance.net/yandossantos1" class="soc" target="_blank" rel="noreferrer">Behance</a>
+  </div>
+</section>
+
+<!-- URGENCY -->
+<div class="urgency-block">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+      <div style="font-weight:900;letter-spacing:1px;color:var(--ink);">Empresas e criadores que confiaram:</div>
+      <div style="display:flex;gap:10px;align-items:center;opacity:.95;">
+        <div style="width:84px;height:28px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-weight:800;border-radius:4px;font-size:11px;">Apiguana</div>
+        <div style="width:84px;height:28px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-weight:800;border-radius:4px;font-size:11px;">Projetos</div>
+        <div style="width:84px;height:28px;background:rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:center;font-weight:800;border-radius:4px;font-size:11px;">Locais</div>
+      </div>
+    </div>
+    <div style="text-align:right;min-width:260px;">
+      <div style="font-size:13px;color:var(--ink2);margin-bottom:8px;">⚠ Atualmente aceitando apenas <strong>3 novos projetos</strong> este mês.</div>
+      <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20garantir%20uma%20vaga" class="nav-hire" style="display:inline-block;">Quero minha vaga</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 YAN EPIFANIO</span>
+  <span style="color:var(--ink3)">Motion + Instagram = Impacto</span>
+</footer>
+
+<script>
+(function() {
+  // CASE MODAL
+  window.openCase = function(data) {
+    var frame = document.getElementById('case-frame');
+    frame.innerHTML = '';
+    if (data.type === 'iframe') {
+      var iframe = document.createElement('iframe');
+      iframe.src = data.src;
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.style.height = '70vh';
+      frame.appendChild(iframe);
+    } else if (data.type === 'video') {
+      var video = document.createElement('video');
+      video.src = data.src;
+      video.controls = true;
+      video.autoplay = true;
+      video.style.maxWidth = '100%';
+      video.style.maxHeight = '70vh';
+      frame.appendChild(video);
+    }
+    document.getElementById('case-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeCase = function() {
+    document.getElementById('case-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('case-frame').innerHTML = '';
+  };
+  document.getElementById('case-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeCase();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeCase();
+  });
+
+  // MOBILE MENU
+  window.toggleMobileMenu = function(open) {
+    var overlay = document.getElementById('mobile-menu-overlay');
+    var toggleBtn = document.getElementById('menu-toggle');
+    if (open) {
+      overlay.classList.add('open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    } else {
+      overlay.classList.remove('open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  };
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      var overlay = document.getElementById('mobile-menu-overlay');
+      if (overlay.classList.contains('open')) toggleMobileMenu(false);
+    }
+  });
+  document.getElementById('mobile-menu-overlay').addEventListener('click', function(e) {
+    if (e.target === this) toggleMobileMenu(false);
+  });
+
+  // SCROLL NAV
+  window.addEventListener('scroll', function() {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // REVEAL ANIMATION
+  var ro = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('on');
+        ro.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    ro.observe(el);
+  });
+
+  // TYPING EFFECT
+  var phrases = ['Entrega rápida', 'Resultado garantido', 'Conteúdo que vende'];
+  var typingEl = document.getElementById('typing-text');
+  var phraseIndex = 0, charIndex = 0, isDeleting = false;
+
+  function typeEffect() {
+    var current = phrases[phraseIndex];
+    if (!isDeleting) {
+      typingEl.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2500);
+        return;
+      }
+      setTimeout(typeEffect, 80);
+    } else {
+      typingEl.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(typeEffect, 400);
+        return;
+      }
+      setTimeout(typeEffect, 40);
+    }
+  }
+  setTimeout(typeEffect, 800);
+})();
+</script>
+</body>
+</html>
