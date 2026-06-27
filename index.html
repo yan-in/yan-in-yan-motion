@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Motion Design para Instagram | YAN EPIFANIO</title>
-<meta name="description" content="Motion para Instagram que prende atenção e engaja."/>
+<title>YAN EPIFANIO | Design, Vídeo & Presença Digital</title>
+<meta name="description" content="Sites, vídeos e motion design para marcas que querem crescer. Presença digital premium."/>
 <meta name="robots" content="index,follow"/>
 <link rel="canonical" href="https://yan-in.github.io/yan-motion-site/"/>
 <meta property="og:locale" content="pt_BR"/>
-<meta property="og:title" content="Motion Design para Instagram | YAN EPIFANIO"/>
-<meta property="og:description" content="Motion para Instagram que prende atenção e engaja."/>
+<meta property="og:title" content="YAN EPIFANIO | Design, Vídeo & Presença Digital"/>
+<meta property="og:description" content="Sites, vídeos e motion design para marcas que querem crescer."/>
 <meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -20,34 +20,26 @@
   --bg:#050505;
   --bg2:#121212;
   --bg3:#1A1A1A;
-
   --ink:#FFFFFF;
   --ink2:rgba(255,255,255,0.74);
   --ink3:rgba(255,255,255,0.48);
-
   --chrome:rgba(255,255,255,0.18);
   --chrome2:rgba(255,255,255,0.10);
-
   --brd:rgba(255,255,255,0.12);
   --brd2:rgba(255,255,255,0.08);
-
   --page-bg:#050505;
 }
 html[data-theme="light"]{
   --bg:#FFFFFF;
   --bg2:#F5F5F5;
   --bg3:#EFEFEF;
-
   --ink:#050505;
   --ink2:rgba(5,5,5,0.74);
   --ink3:rgba(5,5,5,0.48);
-
   --chrome:rgba(5,5,5,0.18);
   --chrome2:rgba(5,5,5,0.10);
-
   --brd:rgba(5,5,5,0.12);
   --brd2:rgba(5,5,5,0.08);
-
   --page-bg:#FFFFFF;
 }
 html{scroll-behavior:smooth;}
@@ -57,8 +49,6 @@ body::after{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
   opacity:.08;mix-blend-mode:overlay;
 }
-
-/* CASE MODAL (removido) */
 
 /* NAV */
 nav{
@@ -89,7 +79,7 @@ nav.scrolled{border-bottom-color:var(--brd);}
 .nav-hire:hover{background:rgba(255,255,255,0.06);}
 .nav-hire:hover::after{transform:translateX(40%);}
 
-/* THEME TOGGLE (discreto) - From Uiverse.io by satyamchaudharydev */
+/* THEME TOGGLE */
 .switch{
   display:block;
   --width-of-switch: 3.2em;
@@ -100,13 +90,10 @@ nav.scrolled{border-bottom-color:var(--brd);}
   width: var(--width-of-switch);
   height: var(--height-of-switch);
 }
-
-/* Hide default checkbox */
 .switch input{
   opacity:0;
   width:0;height:0;
 }
-
 .switch .slider{
   position:absolute;
   cursor:pointer;
@@ -115,7 +102,6 @@ nav.scrolled{border-bottom-color:var(--brd);}
   transition:.4s;
   border-radius:30px;
 }
-
 .switch .slider:before{
   position:absolute;
   content:"";
@@ -128,8 +114,6 @@ nav.scrolled{border-bottom-color:var(--brd);}
   background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
   transition: .4s;
 }
-
-/* when checked => dark */
 .switch input:checked + .slider{
   background-color:#303136;
 }
@@ -138,15 +122,13 @@ nav.scrolled{border-bottom-color:var(--brd);}
   background: #303136;
   box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
-
-/* placement */
 .theme-toggle-wrap{
   display:flex;
   align-items:center;
   justify-content:flex-end;
   gap:12px;
   margin-left:auto;
-  margin-right:24px; /* afasta do menu "Planos" no desktop */
+  margin-right:24px;
   padding-left:0;
 }
 .switch{
@@ -155,7 +137,7 @@ nav.scrolled{border-bottom-color:var(--brd);}
 }
 @media(max-width:768px){
   .theme-toggle-wrap{
-    display:flex; /* manter no mobile */
+    display:flex;
     padding-left:0;
     gap:8px;
   }
@@ -205,13 +187,7 @@ html[data-theme="light"] #hero::before{
     radial-gradient(900px 600px at 15% 25%, rgba(0,0,0,0.035), transparent 70%),
     radial-gradient(700px 520px at 75% 30%, rgba(0,0,0,0.025), transparent 70%);
 }
-
 html[data-theme="light"] .hero-p{ color: rgba(5,5,5,0.72); }
-html[data-theme="light"] .hero-subline{ color: rgba(5,5,5,0.48); }
-html[data-theme="light"] .hero-subline .typing{
-  color: rgba(5,5,5,0.82);
-  border-right:2px solid rgba(5,5,5,0.82);
-}
 html[data-theme="light"] .hero-num{ color: rgba(5,5,5,0.08); }
 
 .hero-num{
@@ -227,8 +203,12 @@ html[data-theme="light"] .hero-num{ color: rgba(5,5,5,0.08); }
 }
 .hero-text{flex:1;max-width:780px;}
 .hero-video-side{
-  flex:0 0 45%;max-width:45%;width:100%;
-  display:flex;justify-content:center;align-items:center;
+  flex:0 0 38%;
+  max-width:38%;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .hero-main-video{
   width:100%;height:auto;max-height:720px;border-radius:24px;
@@ -251,26 +231,15 @@ html[data-theme="light"] .hero-avail::before{
   box-shadow:0 0 0 3px rgba(5,5,5,0.06);
 }
 .hero-h1{
-  font-size:clamp(56px, 8vw, 110px);
+  font-size:clamp(52px, 7vw, 96px);
   font-weight:800;line-height:0.92;color:var(--ink);letter-spacing:-3px;
   margin-bottom:24px;max-width:620px;
 }
 .hero-p{
-  font-size:24px;line-height:1.45;color:var(--ink2);
-  font-weight:600;max-width:620px;margin-bottom:32px;
+  font-size:22px;line-height:1.5;color:var(--ink2);
+  font-weight:500;max-width:580px;margin-bottom:32px;
 }
-.hero-subline{
-  font-size:16px;font-weight:700;color:var(--ink3);
-  margin-top:24px;display:flex;gap:16px;align-items:center;
-}
-.hero-subline .typing{
-  color:var(--ink);font-weight:800;
-  border-right:2px solid var(--ink);padding-right:6px;
-  animation: blink .8s step-end infinite;
-}
-@keyframes blink{50%{border-color:transparent;}}
-
-.hero-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;}
+.hero-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:0;}
 .cta-primary,.cta-secondary{
   display:inline-block;padding:14px 28px;font-size:15px;font-weight:800;
   letter-spacing:1px;text-transform:uppercase;text-decoration:none;
@@ -291,9 +260,9 @@ html[data-theme="light"] .hero-avail::before{
   .hero-links{justify-content:center;}
 }
 
-/* SERVICES */
-#services{padding:88px 60px;border-bottom:1px solid var(--brd);position:relative;}
-#services::after{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--chrome),transparent);pointer-events:none;}
+/* SERVICES (Planos mensais) */
+#servicos-mensais{padding:88px 60px 60px;border-bottom:1px solid var(--brd);position:relative;}
+#servicos-mensais::after{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--chrome),transparent);pointer-events:none;}
 .services-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;gap:20px;}
 .sec-eyebrow{font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;}
 .sec-h{font-size:clamp(34px,4.2vw,58px);font-weight:900;line-height:1.02;color:var(--ink);letter-spacing:-1px;}
@@ -339,6 +308,22 @@ html[data-theme="light"] .hero-avail::before{
 .pro-card .card-btn:hover{background:#2a2a2a;box-shadow:0 8px 30px rgba(0,0,0,0.2);}
 .pro-card .card-btn::before,.pro-card .card-btn::after{background:radial-gradient(circle at 0% 45%, rgba(255,255,255,0.15) 0%, transparent 70%);}
 
+/* SEÇÃO SITES */
+#sites{padding:88px 60px;border-bottom:1px solid var(--brd);background:var(--bg2);}
+.site-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+.site-card{background:var(--bg);border:1px solid var(--brd);border-radius:12px;padding:32px 24px;transition:.3s;}
+.site-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.site-card .price-tag{font-size:28px;font-weight:900;color:var(--ink);margin:12px 0 16px;}
+.site-card .price-tag small{font-size:16px;font-weight:500;color:var(--ink3);}
+.site-card .card-btn{width:100%;margin-top:16px;}
+
+/* SEÇÃO MOTION PREMIUM */
+#motion-premium{padding:88px 60px;border-bottom:1px solid var(--brd);}
+.motion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+.motion-card{background:rgba(255,255,255,0.02);border:1px solid var(--brd);border-radius:12px;padding:32px 24px;transition:.3s;}
+.motion-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.motion-card .card-btn{width:100%;margin-top:16px;}
+
 /* WORK */
 #work{padding:88px 60px;border-bottom:1px solid var(--brd);}
 .work-grid{
@@ -361,7 +346,16 @@ html[data-theme="light"] .hero-avail::before{
 .wi-body{position:absolute;left:0;right:0;bottom:0;padding:22px 20px 18px;}
 .wi-cat{font-size:10px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;}
 .wi-title{font-size:20px;font-weight:900;color:var(--ink);line-height:1.25;letter-spacing:-0.2px;text-transform:uppercase;}
+.work-tags{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;justify-content:center;}
+.work-tags span{background:rgba(255,255,255,0.06);padding:4px 14px;border-radius:999px;font-size:11px;font-weight:700;color:var(--ink2);}
 
+/* HOW IT WORKS */
+#processo{padding:88px 60px;border-bottom:1px solid var(--brd);background:var(--bg2);}
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px;text-align:center;}
+.process-step{position:relative;}
+.process-step .step-num{font-size:48px;font-weight:900;color:var(--ink3);line-height:1;margin-bottom:16px;}
+.process-step .step-title{font-size:20px;font-weight:800;color:var(--ink);margin-bottom:8px;}
+.process-step .step-desc{font-size:15px;color:var(--ink2);line-height:1.6;max-width:280px;margin:0 auto;}
 
 /* ABOUT */
 #about{
@@ -380,9 +374,13 @@ html[data-theme="light"] .hero-avail::before{
 .about-h{font-size:clamp(34px,4.6vw,56px);font-weight:900;line-height:1.02;margin-bottom:24px;letter-spacing:-1px;}
 .about-h em{font-style:normal;color:var(--ink2);}
 .about-p{font-size:15px;line-height:1.9;color:var(--ink2);margin-bottom:16px;font-weight:500;}
+.about-numbers{display:flex;gap:40px;margin:30px 0 20px;}
+.about-numbers div{text-align:center;}
+.about-numbers .num{font-size:32px;font-weight:900;color:var(--ink);display:block;}
+.about-numbers .label{font-size:12px;color:var(--ink3);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
 .about-facts{
   display:grid;grid-template-columns:1fr 1fr;gap:20px;
-  margin-top:40px;padding-top:30px;border-top:1px solid var(--brd);
+  margin-top:20px;padding-top:30px;border-top:1px solid var(--brd);
 }
 .fact-l{font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:6px;}
 .fact-v{font-size:14px;font-weight:900;color:var(--ink);letter-spacing:0.2px;}
@@ -394,7 +392,7 @@ html[data-theme="light"] .hero-avail::before{
 .test-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-4px);}
 .test-stars{color:#FBBF24;font-size:20px;letter-spacing:4px;margin-bottom:12px;}
 .test-text{font-size:16px;line-height:1.7;color:var(--ink2);margin-bottom:16px;font-style:italic;}
-.test-author{display:flex;align-items:center;gap:14px;}
+.test-author{display:flex;flex-direction:column;gap:2px;}
 .test-name{font-weight:700;font-size:15px;color:var(--ink);}
 .test-role{font-size:13px;color:var(--ink3);}
 
@@ -421,7 +419,6 @@ html[data-theme="light"] .hero-avail::before{
   margin:0 0 22px;
 }
 .btn-whatsapp:hover{transform:scale(1.04);box-shadow:0 8px 30px rgba(37,211,102,0.3);}
-.btn-whatsapp .wa-number{font-weight:400;font-size:14px;opacity:0.9;}
 .checklist{
   margin-top:18px;display:inline-flex;gap:18px;color:var(--ink2);
   flex-wrap:wrap;justify-content:center;font-size:13px;
@@ -450,11 +447,12 @@ footer{padding:24px 60px;border-top:1px solid var(--brd);display:flex;align-item
 /* RESPONSIVE */
 @media(max-width:1200px){.work-grid{grid-template-columns:repeat(2,minmax(240px,1fr));}}
 @media(max-width:900px){
-  .services-grid,.work-grid,.test-grid{grid-template-columns:1fr;}
+  .services-grid,.site-grid,.motion-grid,.work-grid,.test-grid,.process-grid{grid-template-columns:1fr;}
   #about{grid-template-columns:1fr;gap:40px;}
   nav,section,#about,#hero{padding-left:24px;padding-right:24px;}
-  .svc-card{transform:none !important;}
+  .svc-card,.site-card,.motion-card{transform:none !important;}
   .test-text{font-size:15px;}
+  .about-numbers{justify-content:center;}
 }
 
 /* CORREÇÃO LINKS AZUIS */
@@ -465,8 +463,6 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
 </style>
 </head>
 <body>
-
-<!-- CASE MODAL (removido) -->
 
 <!-- NAV -->
 <nav id="nav" role="navigation" aria-label="Menu principal">
@@ -479,10 +475,12 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
   </div>
   <button id="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobile-menu-overlay" aria-expanded="false" onclick="toggleMobileMenu(true)">☰</button>
   <ul class="nav-menu">
-    <li><a href="#services">Planos</a></li>
+    <li><a href="#servicos-mensais">Planos</a></li>
+    <li><a href="#sites">Sites</a></li>
+    <li><a href="#motion-premium">Motion</a></li>
     <li><a href="#work">Projetos</a></li>
+    <li><a href="#processo">Como Funciona</a></li>
     <li><a href="#about">Sobre</a></li>
-    <li><a href="#testimonials">Depoimentos</a></li>
     <li><a href="#contact">Contato</a></li>
   </ul>
 </nav>
@@ -491,10 +489,12 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
   <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
     <button class="case-close" type="button" onclick="toggleMobileMenu(false)" aria-label="Fechar menu">✕</button>
     <div class="m-links">
-      <a href="#services" onclick="toggleMobileMenu(false)">Planos</a>
+      <a href="#servicos-mensais" onclick="toggleMobileMenu(false)">Planos</a>
+      <a href="#sites" onclick="toggleMobileMenu(false)">Sites</a>
+      <a href="#motion-premium" onclick="toggleMobileMenu(false)">Motion</a>
       <a href="#work" onclick="toggleMobileMenu(false)">Projetos</a>
+      <a href="#processo" onclick="toggleMobileMenu(false)">Como Funciona</a>
       <a href="#about" onclick="toggleMobileMenu(false)">Sobre</a>
-      <a href="#testimonials" onclick="toggleMobileMenu(false)">Depoimentos</a>
       <a href="#contact" onclick="toggleMobileMenu(false)">Contato</a>
     </div>
   </div>
@@ -504,16 +504,14 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
 <section id="hero">
   <div class="hero-wrapper">
     <div class="hero-text">
-      <div class="hero-avail">VÍDEO & MOTION PARA INSTAGRAM</div>
-      <h1 class="hero-h1">Vídeos que fazem o scroll parar.</h1>
-      <p class="hero-p reveal">Edição de vídeo e motion para marcas que querem parar o scroll e parecer maiores no digital.</p>
+      <div class="hero-avail">SITES • VÍDEOS • MOTION</div>
+      <h1 class="hero-h1">Sua marca merece mais presença digital.</h1>
+      <p class="hero-p reveal">
+        Sites, vídeos e motion design para negócios que querem crescer com autoridade.
+      </p>
       <div class="hero-links reveal">
         <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20um%20or%C3%A7amento%20gratuito" class="cta-primary">Falar no WhatsApp</a>
         <a href="#work" class="cta-secondary">Ver Cases</a>
-      </div>
-      <div class="hero-subline">
-        <span>Conteúdo com movimento, do jeito certo</span>
-        <span class="typing" id="typing-text" aria-hidden="true"></span>
       </div>
     </div>
     <div class="hero-video-side">
@@ -525,12 +523,12 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
+<!-- SERVIÇOS MENSAIS (Planos de Conteúdo) -->
+<section id="servicos-mensais">
   <div class="services-top">
     <div>
-      <div class="sec-eyebrow">Pacotes de Conteúdo em Vídeo</div>
-      <h2 class="sec-h reveal">Escolha seu ritmo<br><em>e transforme seguidores em alunos</em></h2>
+      <div class="sec-eyebrow">Planos de Conteúdo Mensal</div>
+      <h2 class="sec-h reveal">Vídeos toda semana<br><em>para manter seu perfil ativo</em></h2>
     </div>
   </div>
   <div class="services-grid">
@@ -597,7 +595,103 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
   </div>
 </section>
 
-<!-- WORK -->
+<!-- CRIAÇÃO DE SITES -->
+<section id="sites">
+  <div class="services-top">
+    <div>
+      <div class="sec-eyebrow">Criação de Sites</div>
+      <h2 class="sec-h reveal">Sua marca merece um site<br><em>que converta e impressione</em></h2>
+    </div>
+  </div>
+  <div class="site-grid">
+    <div class="site-card reveal">
+      <div class="card-badge">LANDING PAGE</div>
+      <div class="card-title" style="font-size:22px;">Landing Page</div>
+      <div style="font-size:13px;color:var(--ink3);margin-bottom:8px;font-weight:500;">Foco em conversão e lead</div>
+      <div class="price-tag">R$700 <small>a partir</small></div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Design premium</li>
+        <li><span class="check">✓</span> Responsivo e rápido</li>
+        <li><span class="check">✓</span> WhatsApp integrado</li>
+        <li><span class="check">✓</span> SEO básico</li>
+      </ul>
+      <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20uma%20Landing%20Page" class="card-btn">Solicitar orçamento</a>
+    </div>
+    <div class="site-card reveal" style="background:var(--bg);border-color:var(--brd);">
+      <div class="card-badge highlight">INSTITUCIONAL</div>
+      <div class="card-title" style="font-size:22px;">Site Institucional</div>
+      <div style="font-size:13px;color:var(--ink3);margin-bottom:8px;font-weight:500;">Autoridade e estrutura completa</div>
+      <div class="price-tag">R$1200 <small>a partir</small></div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Multi páginas</li>
+        <li><span class="check">✓</span> Estrutura completa</li>
+        <li><span class="check">✓</span> Mais autoridade digital</li>
+        <li><span class="check">✓</span> Blog / notícias (opcional)</li>
+      </ul>
+      <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20um%20site%20institucional" class="card-btn">Solicitar orçamento</a>
+    </div>
+    <div class="site-card reveal" style="background:var(--bg);border-color:var(--brd);">
+      <div class="card-badge premium">PREMIUM</div>
+      <div class="card-title" style="font-size:22px;">Sob Demanda</div>
+      <div style="font-size:13px;color:var(--ink3);margin-bottom:8px;font-weight:500;">Projetos exclusivos e integrações</div>
+      <div class="price-tag" style="font-size:24px;">Sob orçamento</div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Sistemas e integrações</li>
+        <li><span class="check">✓</span> Projetos personalizados</li>
+        <li><span class="check">✓</span> Design exclusivo</li>
+        <li><span class="check">✓</span> Performance e SEO</li>
+      </ul>
+      <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20um%20site%20premium" class="card-btn">Solicitar orçamento</a>
+    </div>
+  </div>
+</section>
+
+<!-- MOTION DESIGN & VISUALS -->
+<section id="motion-premium">
+  <div class="services-top">
+    <div>
+      <div class="sec-eyebrow">Motion Design & Visuals</div>
+      <h2 class="sec-h reveal">Animações que impressionam<br><em>em qualquer tela</em></h2>
+    </div>
+  </div>
+  <div class="motion-grid">
+    <div class="motion-card reveal">
+      <div class="card-badge">SOCIAL</div>
+      <div class="card-title" style="font-size:22px;">Social Motion</div>
+      <div style="font-size:13px;color:var(--ink3);margin-bottom:12px;font-weight:500;">Para redes e campanhas</div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Reels, Stories, Ads</li>
+        <li><span class="check">✓</span> Campanhas para Instagram</li>
+        <li><span class="check">✓</span> Motion rápido e impactante</li>
+      </ul>
+      <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20motion%20para%20redes%20sociais" class="card-btn">Solicitar orçamento</a>
+    </div>
+    <div class="motion-card reveal" style="background:var(--bg);border-color:var(--brd);">
+      <div class="card-badge highlight">COMERCIAL</div>
+      <div class="card-title" style="font-size:22px;">Comercial Motion</div>
+      <div style="font-size:13px;color:var(--ink3);margin-bottom:12px;font-weight:500;">Vídeos que vendem e impactam</div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Anúncios em vídeo</li>
+        <li><span class="check">✓</span> Vídeos institucionais</li>
+        <li><span class="check">✓</span> Campanhas comerciais</li>
+      </ul>
+      <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20motion%20comercial" class="card-btn">Solicitar orçamento</a>
+    </div>
+    <div class="motion-card reveal" style="background:var(--bg);border-color:var(--brd);">
+      <div class="card-badge premium">EVENTOS</div>
+      <div class="card-title" style="font-size:22px;">Eventos & Painéis</div>
+      <div style="font-size:13px;color:var(--ink3);margin-bottom:12px;font-weight:500;">Telões, displays e ativações</div>
+      <ul class="card-features">
+        <li><span class="check">✓</span> Telões LED</li>
+        <li><span class="check">✓</span> Outdoors digitais</li>
+        <li><span class="check">✓</span> Visual loops e displays</li>
+      </ul>
+      <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20motion%20para%20eventos" class="card-btn">Solicitar orçamento</a>
+    </div>
+  </div>
+</section>
+
+<!-- WORK (Casos) -->
 <section id="work">
   <div class="sec-eyebrow">Casos em vídeo</div>
   <h2 class="sec-h reveal" style="margin-bottom:0">Motion para Instagram<br><em>com presença</em></h2>
@@ -641,15 +735,46 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
         <div class="wi-title">Motion para Casamento</div>
       </div>
     </div>
-
   </div>
 
+  <div class="work-tags">
+    <span>🎬 Motion</span>
+    <span>📱 Vídeos</span>
+    <span>💻 Sites (em breve)</span>
+  </div>
 
   <div style="margin-top:60px;padding:28px 22px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:12px;text-align:center;">
     <div style="font-size:13px;color:var(--ink2);line-height:1.6;">
-      <strong>Gostou do que viu?</strong> Chama no WhatsApp e descubra como ficaria o seu conteúdo.
+      <strong>Gostou do que viu?</strong> Chama no WhatsApp e descubra como ficaria o seu conteúdo ou site.
     </div>
     <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20saber%20como%20ficaria%20meu%20conte%C3%BAdo" style="display:inline-block;margin-top:14px;padding:10px 24px;background:rgba(255,255,255,0.06);border:1px solid var(--brd);border-radius:999px;color:var(--ink);font-weight:800;font-size:13px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:.2s;">Quero um motion assim →</a>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="processo">
+  <div class="services-top">
+    <div>
+      <div class="sec-eyebrow">Processo Simplificado</div>
+      <h2 class="sec-h reveal">Como funciona<br><em>do briefing à publicação</em></h2>
+    </div>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Briefing ou Envio</div>
+      <div class="step-desc">Você me envia o conteúdo (imagens, vídeos, ideias) ou me passa o briefing do site.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num">02</div>
+      <div class="step-title">Criação e Edição</div>
+      <div class="step-desc">Eu crio o design, edito os vídeos e desenvolvo as animações com foco em impacto.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-num">03</div>
+      <div class="step-title">Aprovação e Publicação</div>
+      <div class="step-desc">Você aprova (com ajustes se necessário) e publica no seu perfil ou site.</div>
+    </div>
   </div>
 </section>
 
@@ -657,18 +782,25 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
 <section id="about">
   <div class="about-img-w reveal">
     <img class="about-img" src="assets\images\perfil.png" alt="Yan Epifanio — Perfil"/>
-    <div class="about-img-caption">YAN EPIFANIO — Motion & Instagram</div>
+    <div class="about-img-caption">YAN EPIFANIO — Digital Designer</div>
   </div>
   <div class="about-r reveal">
     <div class="sec-eyebrow">SOBRE O TRABALHO</div>
-    <h2 class="about-h">Não faço apenas animações.<br><em>Faço seu perfil se destacar.</em></h2>
-    <p class="about-p">Sou especialista em motion design para redes sociais. Meu trabalho é dar vida ao seu conteúdo com animações envolventes e produção ágil, mantendo seu perfil sempre relevante e profissional.</p>
-    <p class="about-p">Cada animação é pensada para gerar retenção, engajamento e valorizar sua comunicação visual — entregando resultados rápidos sem complicação.</p>
+    <h2 class="about-h">Ajudo marcas a construírem<br><em>presença digital forte.</em></h2>
+    <p class="about-p">Sou designer digital focado em criar sites, vídeos e motion design que elevam a percepção de marca e geram resultados reais para negócios locais e profissionais premium.</p>
+    <p class="about-p">Cada projeto é pensado para alinhar identidade visual, funcionalidade e performance — seja um site institucional, uma campanha de vídeo ou uma animação impactante.</p>
+    
+    <div class="about-numbers">
+      <div><span class="num">+50</span><span class="label">Vídeos entregues</span></div>
+      <div><span class="num">+15</span><span class="label">Sites desenvolvidos</span></div>
+      <div><span class="num">5+</span><span class="label">Nichos atendidos</span></div>
+    </div>
+
     <div class="about-facts">
-      <div><div class="fact-l">Foco Principal</div><div class="fact-v">Conteúdo em Vídeo (Reels, Edição, Motion)</div></div>
-      <div><div class="fact-l">Especialidade</div><div class="fact-v">Motion Design e Edição</div></div>
-      <div><div class="fact-l">Abordagem</div><div class="fact-v">Produção Ágil + Criatividade</div></div>
-      <div><div class="fact-l">Status</div><div class="fact-v">Aceitando novos clientes mensais</div></div>
+      <div><div class="fact-l">Foco Principal</div><div class="fact-v">Sites • Vídeos • Motion</div></div>
+      <div><div class="fact-l">Especialidade</div><div class="fact-v">Design Digital e Conteúdo Visual</div></div>
+      <div><div class="fact-l">Abordagem</div><div class="fact-v">Estratégia + Criatividade</div></div>
+      <div><div class="fact-l">Status</div><div class="fact-v">Aceitando novos clientes</div></div>
     </div>
   </div>
 </section>
@@ -676,30 +808,30 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
 <!-- TESTIMONIALS -->
 <section id="testimonials" class="testimonials">
   <div class="sec-eyebrow">Feedback</div>
-  <h2 class="sec-h reveal">Quando o motion acerta<br><em>fica impossível ignorar</em></h2>
+  <h2 class="sec-h reveal">Quando o trabalho acerta<br><em>fica impossível ignorar</em></h2>
   <div class="test-grid">
     <div class="test-card reveal">
       <div class="test-stars">★★★★★</div>
-      <div class="test-text">"Mudou completamente o visual do meu feed. O movimento chama atenção na hora."</div>
+      <div class="test-text">"Mudou completamente o visual do meu feed e do site. Profissionalismo em cada detalhe. Recomendo de olhos fechados."</div>
       <div class="test-author">
-        <div class="test-name">Cliente</div>
-        <div class="test-role">Instagram</div>
+        <div class="test-name">João Silva</div>
+        <div class="test-role">Dono de Academia</div>
       </div>
     </div>
     <div class="test-card reveal">
       <div class="test-stars">★★★★★</div>
-      <div class="test-text">"Stories ficaram com cara de marca grande, mas com um toque bem humano."</div>
+      <div class="test-text">"O site ficou incrível e os vídeos deram uma cara nova pra minha marca. Entregou rápido e superou minha expectativa."</div>
       <div class="test-author">
-        <div class="test-name">Cliente</div>
-        <div class="test-role">Stories</div>
+        <div class="test-name">Larissa Mendes</div>
+        <div class="test-role">Personal Trainer</div>
       </div>
     </div>
     <div class="test-card reveal">
       <div class="test-stars">★★★★★</div>
-      <div class="test-text">"Reels com edição dinâmica e motion bem limpo. Ficou pronto rápido."</div>
+      <div class="test-text">"Motion de alto nível e sites bem estruturados. Fechou meu projeto completo em menos de uma semana."</div>
       <div class="test-author">
-        <div class="test-name">Cliente</div>
-        <div class="test-role">Reels</div>
+        <div class="test-name">Rafael Souza</div>
+        <div class="test-role">Empresário</div>
       </div>
     </div>
   </div>
@@ -708,11 +840,10 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
 <!-- CONTACT -->
 <section id="contact">
   <div class="sec-eyebrow">Vamos conversar</div>
-  <h2 class="contact-h reveal">Pronto para se destacar?</h2>
-  <p class="contact-p reveal">Animações que transformam posts comuns em conteúdo que prende atenção e gera mais resultado.</p>
+  <h2 class="contact-h reveal">Sua marca já é boa.<br><em>Agora precisa parecer boa.</em></h2>
+  <p class="contact-p reveal">Sites, vídeos e animações que transformam sua presença digital em autoridade e conversão. Sem enrolação.</p>
   <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20um%20or%C3%A7amento%20gratuito" class="btn-whatsapp reveal">
      QUERO MEU ORÇAMENTO GRATUITO
-   <!-- <span class="wa-number">(85) 99614-9074</span> -->
   </a>
   <div class="checklist">✔ Orçamento gratuito &nbsp;&nbsp; ✔ Sem compromisso &nbsp;&nbsp; ✔ Resposta em até 24h</div>
   <div class="socials reveal">
@@ -743,18 +874,18 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
 <!-- FOOTER -->
 <footer>
   <span>© 2026 YAN EPIFANIO</span>
-  <span style="color:var(--ink3)">Motion + Instagram = Impacto</span>
+  <span style="color:var(--ink3)">Design • Vídeo • Presença Digital</span>
 </footer>
 
 <script>
 (function() {
-  // THEME TOGGLE (switch)
+  // THEME TOGGLE
   var themeToggleInput = document.getElementById('theme-toggle');
   if (themeToggleInput) {
     var applyTheme = function(theme) {
       var isLight = theme === 'light';
       document.documentElement.setAttribute('data-theme', isLight ? 'light' : 'dark');
-      themeToggleInput.checked = !isLight; // checked => dark
+      themeToggleInput.checked = !isLight;
       try { localStorage.setItem('theme', theme); } catch (e) {}
     };
 
@@ -810,36 +941,6 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
   document.querySelectorAll('.reveal').forEach(function(el) {
     ro.observe(el);
   });
-
-  // TYPING EFFECT
-  var phrases = ['Entrega rápida', 'Resultado garantido', 'Conteúdo que vende'];
-  var typingEl = document.getElementById('typing-text');
-  var phraseIndex = 0, charIndex = 0, isDeleting = false;
-
-  function typeEffect() {
-    var current = phrases[phraseIndex];
-    if (!isDeleting) {
-      typingEl.textContent = current.substring(0, charIndex + 1);
-      charIndex++;
-      if (charIndex === current.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 2500);
-        return;
-      }
-      setTimeout(typeEffect, 80);
-    } else {
-      typingEl.textContent = current.substring(0, charIndex - 1);
-      charIndex--;
-      if (charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(typeEffect, 400);
-        return;
-      }
-      setTimeout(typeEffect, 40);
-    }
-  }
-  setTimeout(typeEffect, 800);
 })();
 </script>
 </body>
