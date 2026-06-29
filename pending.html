@@ -36,24 +36,9 @@
       margin: 0 auto 20px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-    h2 {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
-    }
-    p {
-      color: rgba(255,255,255,0.7);
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-    .debug {
-      margin-top: 16px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.35);
-      word-break: break-all;
-    }
+    h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    p { color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6; margin-bottom: 8px; }
+    .debug { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.35); word-break: break-all; }
     .btn-home {
       display: inline-block;
       margin-top: 20px;
@@ -67,10 +52,7 @@
       font-weight: 600;
       transition: .2s;
     }
-    .btn-home:hover {
-      background: rgba(255,255,255,0.10);
-      color: #fff;
-    }
+    .btn-home:hover { background: rgba(255,255,255,0.10); color: #fff; }
   </style>
 </head>
 <body>
@@ -97,7 +79,7 @@
       debugEl.textContent = `Aguardando confirmação do pagamento ID: ${paymentId}`;
 
       let attempts = 0;
-      const maxAttempts = 60; // 60 * 3s = 3 minutos
+      const maxAttempts = 120; // 120 * 3s = 6 minutos
 
       async function checkStatus() {
         try {
@@ -107,24 +89,24 @@
           );
           const data = await response.json();
 
+          // Seu worker retorna { status: data.status }
+          // E suas páginas no projeto são: success.html e failure.html
           if (data.status === 'approved') {
-            window.location.href = '/success';
+            window.location.href = '/success.html';
             return;
           }
 
           if (data.status === 'rejected' || data.status === 'cancelled' || data.status === 'refunded') {
-            window.location.href = '/failure';
+            window.location.href = '/failure.html';
             return;
           }
 
-          // Ainda pendente
           attempts++;
           if (attempts >= maxAttempts) {
             debugEl.textContent = '⏳ O pagamento está demorando mais que o esperado. Você pode verificar manualmente ou tentar novamente.';
             return;
           }
 
-          // Continua aguardando
           debugEl.textContent = `Aguardando... (${Math.floor(attempts * 3)}s)`;
           setTimeout(checkStatus, 3000);
 
@@ -135,7 +117,6 @@
         }
       }
 
-      // Inicia o polling
       checkStatus();
     })();
   </script>

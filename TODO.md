@@ -1,9 +1,5 @@
-- [x] Ajustar Hero: hero-avail e hero-h1
-- [x] Ajustar Hero: hero-p com inclusão de edição
-- [x] Ajustar Serviços: sec-eyebrow para “Vídeo & Motion”
-- [x] Ajustar Sobre: about-facts fact-v “Conteúdo em Vídeo (Reels, Edição, Motion)”
-- [ ] (Opcional) Revisar outros textos com “motion” para manter consistência da nova narrativa
-- [ ] Build/testar: abrir index.html no navegador e checar se layout não quebrou
-
-
+- [ ] Recriar o bloco `#checkout-pix` no `index.html` na posição correta (depois de `#servicos-mensais`), mantendo o mesmo CSS/JS do arquivo.
+- [ ] Garantir que os IDs `pixForm`, `generatePixBtn`, `pixError`, `pixAmount` continuem existindo.
+- [ ] Testar no navegador: carregar `index.html` e confirmar que o checkout aparece.
+- [ ] Testar fluxo Pix: gerar pagamento → pendente.html → (worker retorna approved) → sucesso.html.
 

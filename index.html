@@ -692,33 +692,7 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
   </div>
 </section>
 
-<!-- ===== SEÇÃO CHECKOUT PRO ===== -->
-<section id="checkout-pix">
-  <div class="pix-container">
-    <div class="pix-header">
-      <div class="badge">Pagamento Rápido</div>
-      <h3>Pague com <em>Pix</em></h3>
-<p>Você será redirecionado para o ambiente seguro do Mercado Pago (Pix online).</p>
-    </div>
 
-    <form id="pixForm" class="pix-form">
-      <div class="field-group">
-        <label for="pixAmount">Valor (R$)</label>
-        <div class="input-wrapper">
-          <span class="currency-symbol">R$</span>
-          <input type="text" id="pixAmount" class="with-currency" value="97,00" placeholder="0,00" required/>
-        </div>
-      </div>
-
-      <button type="submit" id="generatePixBtn" class="btn-primary">
-        <span class="btn-text">Pagar com Pix</span>
-        <span class="spinner"></span>
-      </button>
-    </form>
-
-    <div id="pixError" class="pix-error">Erro ao iniciar pagamento. Tente novamente.</div>
-  </div>
-</section>
 
 <!-- SERVIÇOS MENSAIS (Planos de Conteúdo) -->
 <section id="servicos-mensais">
@@ -789,6 +763,35 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
     <div style="font-size:12px;color:var(--ink3);letter-spacing:0.5px;">
       Você manda seu conteúdo e eu retorno com um caminho claro pra seu Instagram.
     </div>
+  </div>
+</section>
+
+
+<!-- ===== SEÇÃO CHECKOUT PRO ===== -->
+<section id="checkout-pix">
+  <div class="pix-container">
+    <div class="pix-header">
+      <div class="badge">Pagamento Rápido</div>
+      <h3>Pague com <em>Pix</em></h3>
+      <p>Você será redirecionado para o ambiente seguro do Mercado Pago (Pix online).</p>
+    </div>
+
+    <form id="pixForm" class="pix-form">
+      <div class="field-group">
+        <label for="pixAmount">Valor (R$)</label>
+        <div class="input-wrapper">
+          <span class="currency-symbol">R$</span>
+          <input type="text" id="pixAmount" class="with-currency" value="97,00" placeholder="0,00" required/>
+        </div>
+      </div>
+
+      <button type="submit" id="generatePixBtn" class="btn-primary">
+        <span class="btn-text">Pagar com Pix</span>
+        <span class="spinner"></span>
+      </button>
+    </form>
+
+    <div id="pixError" class="pix-error">Erro ao iniciar pagamento. Tente novamente.</div>
   </div>
 </section>
 
