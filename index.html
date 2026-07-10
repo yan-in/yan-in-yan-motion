@@ -13,7 +13,7 @@
 <meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -42,7 +42,7 @@ body::after{
 nav{
   display:flex;align-items:center;justify-content:space-between;padding:22px 60px;
   position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(5,5,5,0.72);backdrop-filter:blur(18px);
+  background:rgba(5,5,5,0.72);backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,0);transition:.3s;
 }
 html[data-theme="light"] nav{
@@ -1023,7 +1023,7 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
   <div class="work-grid">
     <div class="work-item reveal">
       <div class="wi-media">
-        <video muted loop autoplay playsinline preload="metadata">
+        <video class="lazy-video" muted loop playsinline preload="none">
 <source src="assets/videos/academia.mp4" type="video/mp4"/>
         </video>
 
@@ -1036,7 +1036,7 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
 
     <div class="work-item reveal">
       <div class="wi-media">
-        <video muted loop autoplay playsinline preload="metadata">
+        <video class="lazy-video" muted loop playsinline preload="none">
 <source src="assets/videos/pizzaria.mp4" type="video/mp4"/>
         </video>
 
@@ -1049,7 +1049,7 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
 
     <div class="work-item reveal">
       <div class="wi-media">
-        <video muted loop autoplay playsinline preload="metadata">
+        <video class="lazy-video" muted loop playsinline preload="none">
 <source src="assets/videos/casamento.mp4" type="video/mp4"/>
         </video>
 
@@ -1091,7 +1091,7 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
 
     <div class="ex-pro-right">
       <div class="ex-pro-video-wrap reveal">
-        <video class="ex-pro-video" muted loop autoplay playsinline preload="metadata">
+        <video class="ex-pro-video lazy-video" muted loop playsinline preload="none">
 <source src="assets/videos/main.mp4" type="video/mp4"/>
         </video>
         <div class="ex-pro-video-fade" aria-hidden="true"></div>
@@ -1130,7 +1130,7 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
 <!-- ABOUT -->
 <section id="about">
   <div class="about-img-w reveal">
-    <img class="about-img" src="assets\images\perfil.png" alt="Yan Epifanio — Perfil"/>
+    <img class="about-img" src="assets/images/perfil.png" alt="Yan Epifanio — Perfil" loading="lazy" decoding="async"/>
     <div class="about-img-caption">YAN EPIFANIO — Digital Designer</div>
   </div>
   <div class="about-r reveal">
@@ -1271,6 +1271,27 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
   document.querySelectorAll('.reveal').forEach(function(el) {
     ro.observe(el);
   });
+
+  // LAZY VIDEOS: só carregam e tocam quando entram na tela, pausam ao sair
+  // (evita 5 vídeos autoplay disputando banda/bateria ao mesmo tempo)
+  var lazyVideos = document.querySelectorAll('video.lazy-video');
+  if (lazyVideos.length) {
+    var vo = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var video = entry.target;
+        if (entry.isIntersecting) {
+          if (!video.dataset.loaded) {
+            video.load();
+            video.dataset.loaded = 'true';
+          }
+          video.play().catch(function() {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.25, rootMargin: '80px 0px' });
+    lazyVideos.forEach(function(video) { vo.observe(video); });
+  }
 
   // ===== CHECKOUT PRO (redirect para Mercado Pago) =====
   var pixForm = document.getElementById('pixForm');
