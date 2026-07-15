@@ -72,10 +72,12 @@
       }
     ]
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "ratingCount": "3"
+  "telephone": "+5585996149074",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+5585996149074",
+    "url": "https://wa.me/5585996149074"
   }
 }
 </script>
@@ -1674,62 +1676,81 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
   var contactForm = document.getElementById('contactForm');
   var contactStatus = document.getElementById('contactStatus');
   
-  contactForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    var name = document.getElementById('contactName').value.trim();
-    var email = document.getElementById('contactEmail').value.trim();
-    var message = document.getElementById('contactMessage').value.trim();
-    
-    if (!name || !email || !message) {
-      contactStatus.textContent = '❌ Preencha todos os campos.';
-      contactStatus.classList.remove('success');
-      contactStatus.classList.add('error');
-      contactStatus.style.display = 'block';
-      return;
-    }
-    
-    var submitBtn = contactForm.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    
-    try {
-      // Envia para FormSubmit.co
-      var response = await fetch('https://formsubmit.co/ajax/yan.epifanio@gmail.com', {
-        method: 'POST',
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          message: message,
-          _captcha: 'false'
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
       
-      trackEvent('form_submitted', 'contact', {name: name, email: email});
+      var name = document.getElementById('contactName').value.trim();
+      var email = document.getElementById('contactEmail').value.trim();
+      var message = document.getElementById('contactMessage').value.trim();
       
-      if (response.ok) {
-        contactStatus.textContent = '✅ Mensagem enviada! Respondo em até 24h.';
-        contactStatus.classList.remove('error');
-        contactStatus.classList.add('success');
+      if (!name || !email || !message) {
+        contactStatus.textContent = '❌ Preencha todos os campos.';
+        contactStatus.classList.remove('success');
+        contactStatus.classList.add('error');
         contactStatus.style.display = 'block';
-        contactForm.reset();
-        document.getElementById('contactName').focus();
-      } else {
-        throw new Error('Erro ao enviar');
+        return false;
       }
-    } catch (error) {
-      console.error('Erro:', error);
-      contactStatus.textContent = '❌ Erro ao enviar. Tente novamente.';
-      contactStatus.classList.remove('success');
-      contactStatus.classList.add('error');
-      contactStatus.style.display = 'block';
-      trackEvent('form_error', 'contact', {error: error.message});
-    }
-    
-    submitBtn.disabled = false;
-  });
+      
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      
+      try {
+        // Envia para FormSubmit.co com timeout
+        var controller = new AbortController();
+        var timeoutId = setTimeout(function() { controller.abort(); }, 8000);
+        
+        var response = await fetch('https://formsubmit.co/ajax/yan.epifanio@gmail.com', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+            _captcha: 'false',
+            _autoresponse: 'Obrigado! Respondo em 24h.'
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          signal: controller.signal
+        });
+        
+        clearTimeout(timeoutId);
+        
+        if (typeof gtag !== 'undefined' && window.gtag) {
+          try {
+            trackEvent('form_submitted', 'contact', {name: name, email: email});
+          } catch (e) { console.warn('GA4 error:', e); }
+        }
+        
+        if (response.ok) {
+          contactStatus.textContent = '✅ Mensagem enviada! Respondo em até 24h.';
+          contactStatus.classList.remove('error');
+          contactStatus.classList.add('success');
+          contactStatus.style.display = 'block';
+          contactForm.reset();
+          document.getElementById('contactName').focus();
+        } else {
+          throw new Error('Servidor respondeu com erro');
+        }
+      } catch (error) {
+        console.error('Erro no formulário:', error.message);
+        contactStatus.textContent = '❌ Erro ao enviar. Tente novamente.';
+        contactStatus.classList.remove('success');
+        contactStatus.classList.add('error');
+        contactStatus.style.display = 'block';
+        
+        if (typeof gtag !== 'undefined' && window.gtag) {
+          try {
+            trackEvent('form_error', 'contact', {error: error.message});
+          } catch (e) { console.warn('GA4 error:', e); }
+        }
+      }
+      
+      submitBtn.disabled = false;
+      return false;
+    });
+  }
 
 })();
 </script>
