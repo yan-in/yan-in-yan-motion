@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="google-site-verification" content="Seu-codigo-aqui"/>
 
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MB823YVY9Y"></script>
@@ -10,7 +11,11 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-MB823YVY9Y');
+  gtag('config', 'G-MB823YVY9Y', {
+    'allow_google_signals': true,
+    'allow_ad_personalization_signals': true
+  });
+  console.log('✅ GA4 iniciado com sucesso');
 </script>
 
 <title>YAN EPIFANIO | Design, Vídeo & Presença Digital</title>
