@@ -11,9 +11,101 @@
 <meta property="og:title" content="YAN EPIFANIO | Design, Vídeo & Presença Digital"/>
 <meta property="og:description" content="Sites, vídeos e motion design para marcas que querem crescer."/>
 <meta property="og:type" content="website"/>
+
+<!-- Schema Markup para Google/Gemini -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Yan Epifanio",
+  "url": "https://yanepifanio.com.br",
+  "image": "https://yanepifanio.com.br/assets/images/perfil.png",
+  "jobTitle": "Designer Digital & Motion Designer",
+  "description": "Especialista em design digital, criação de sites, vídeos e motion design para marcas que querem crescer.",
+  "knowsAbout": ["Web Design", "Motion Design", "Vídeo Editing", "Digital Marketing", "Presença Digital"],
+  "sameAs": [
+    "https://instagram.com/yan.epifanio",
+    "https://www.behance.net/yandossantos1",
+    "https://www.linkedin.com/in/yaan22"
+  ],
+  "offers": {
+    "@type": "AggregateOffer",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Plano Starter - Vídeos Mensais",
+        "price": "97.00",
+        "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock",
+        "description": "3 vídeos dinâmicos (Stories) com edição profissional"
+      },
+      {
+        "@type": "Offer",
+        "name": "Plano Pro - Vídeos Mensais",
+        "price": "197.00",
+        "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock",
+        "description": "4 vídeos Feed + 3 Stories com prioridade"
+      },
+      {
+        "@type": "Offer",
+        "name": "Plano Business - Vídeos Mensais",
+        "price": "397.00",
+        "priceCurrency": "BRL",
+        "availability": "https://schema.org/InStock",
+        "description": "4 Reels + 4 Feed + 3 Stories + Planejamento visual"
+      }
+    ]
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": "3"
+  }
+}
+</script>
+
+<!-- Schema para Organizacao Local -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Yan Epifanio - Design Digital",
+  "image": "https://yanepifanio.com.br/assets/images/perfil.png",
+  "description": "Estúdio de design digital especializado em sites, vídeos e motion design",
+  "url": "https://yanepifanio.com.br",
+  "telephone": "+5585996149074",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+5585996149074",
+    "url": "https://wa.me/5585996149074"
+  },
+  "sameAs": [
+    "https://instagram.com/yan.epifanio",
+    "https://www.behance.net/yandossantos1",
+    "https://www.linkedin.com/in/yaan22"
+  ],
+  "priceRange": "R$ 97 - R$ 1200+"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MB823YVY9Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MB823YVY9Y', {
+    'page_path': window.location.pathname,
+    'send_page_view': true
+  });
+</script>
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -156,6 +248,22 @@ nav.scrolled{border-bottom-color:var(--brd);}
     border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);
   }
   #mobile-menu .m-links a:hover{color:var(--ink);border-color:rgba(255,255,255,0.18);}
+  #mobile-menu .case-close{
+    align-self:flex-end;
+    background:transparent;
+    border:none;
+    color:var(--ink2);
+    font-size:24px;
+    width:36px;
+    height:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.2s;
+    margin-bottom:8px;
+  }
+  #mobile-menu .case-close:hover{color:var(--ink);}
 }
 
 /* HERO */
@@ -202,6 +310,31 @@ html[data-theme="light"] .hero-num{ color: rgba(5,5,5,0.08); }
   width:100%;height:auto;border-radius:24px;
   object-fit:cover;box-shadow:0 40px 90px rgba(0,0,0,0.35);
   background:var(--bg);border:0;
+}
+
+/* SKELETON LOADING */
+.video-skeleton{
+  background:linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+  background-size:200% 100%;
+  animation:skeleton-loading 1.5s infinite;
+}
+@keyframes skeleton-loading{
+  0%{background-position:200% 0;}
+  100%{background-position:-200% 0;}
+}
+
+/* VIDEO LAZY (antes de carregar) */
+video.lazy-video[data-loaded="false"]{
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* HERO VIDEO SKELETON */
+.hero-main-video:not([data-loaded="true"]){
+  background:linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+  background-size:200% 100%;
+  animation:skeleton-loading 1.5s infinite;
+  opacity:0.7;
 }
 .hero-avail{
   display:inline-flex;align-items:center;gap:10px;
@@ -400,6 +533,88 @@ html[data-theme="dark"] .cta-secondary{color:#fff;border-color:rgba(255,255,255,
 .btn-primary.loading .spinner{display:block;}
 .btn-primary.loading .btn-text{display:none;}
 @keyframes spin{to{transform:rotate(360deg);}}
+
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:16px 32px;
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:999px;
+  cursor:pointer;
+  transition:.3s;
+  width:100%;
+  margin-top:12px;
+}
+.btn-secondary:hover{
+  background:rgba(255,255,255,0.18);
+  border-color:rgba(255,255,255,0.35);
+  transform:translateY(-2px);
+}
+.btn-secondary:disabled{
+  opacity:0.6;
+  cursor:not-allowed;
+  transform:none !important;
+}
+
+.contact-form-wrapper{
+  margin-top:32px;
+  max-width:500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.contact-form .form-group{
+  display:flex;
+  flex-direction:column;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px 16px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--brd);
+  border-radius:8px;
+  font-size:14px;
+  color:var(--ink);
+  font-family:inherit;
+  transition:.2s;
+  outline:none;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0.06);
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color:var(--ink3);
+}
+.contact-form textarea{
+  resize:vertical;
+  min-height:100px;
+}
+#contactStatus.success{
+  background:rgba(37,211,102,0.15);
+  border:1px solid rgba(37,211,102,0.3);
+  color:#25D366;
+}
+#contactStatus.error{
+  background:rgba(255,107,107,0.15);
+  border:1px solid rgba(255,107,107,0.3);
+  color:#FF6B6B;
+}
 
 .pix-error{
   color:#FF6B6B;
@@ -799,8 +1014,8 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
         Sites, vídeos e motion design para negócios que querem crescer com autoridade.
       </p>
       <div class="hero-links reveal">
-        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20um%20or%C3%A7amento%20gratuito" class="cta-primary">Falar no WhatsApp</a>
-        <a href="#work" class="cta-secondary">Ver Cases</a>
+        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20um%20or%C3%A7amento%20gratuito" class="cta-primary" onclick="trackEvent('cta_whatsapp', 'hero')">Falar no WhatsApp</a>
+        <a href="#work" class="cta-secondary" onclick="trackEvent('view_cases', 'hero')">Ver Cases</a>
       </div>
     </div>
     <div class="hero-video-side">
@@ -838,7 +1053,7 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
           <li><span class="check">✓</span> <span>Ajustes de layout</span></li>
           <li><span class="check">✓</span> <span>Ideal pra engajamento</span></li>
         </ul>
-        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20STARTER" class="card-btn">Quero este plano</a>
+        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20STARTER" class="card-btn" onclick="trackEvent('select_plan', 'planos', {plan: 'Starter', value: 97})">Quero este plano</a>
       </div>
     </div>
     <div class="svc-card pro-card reveal">
@@ -855,7 +1070,7 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
           <li><span class="check">✓</span> <span>Prioridade na edição</span></li>
           <li><span class="check">✓</span> <span>Melhor custo-benefício</span></li>
         </ul>
-        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20PRO" class="card-btn">Quero este plano</a>
+        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20PRO" class="card-btn" onclick="trackEvent('select_plan', 'planos', {plan: 'Pro', value: 197})">Quero este plano</a>
       </div>
     </div>
     <div class="svc-card business-card reveal">
@@ -873,7 +1088,7 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
           <li><span class="check">✓</span> <span>Planejamento visual</span></li>
           <li><span class="check">✓</span> <span>Atendimento prioritário</span></li>
         </ul>
-        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20BUSINESS" class="card-btn">Quero este plano</a>
+        <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20quero%20o%20plano%20BUSINESS" class="card-btn" onclick="trackEvent('select_plan', 'planos', {plan: 'Business', value: 397})">Quero este plano</a>
       </div>
     </div>
   </div>
@@ -884,35 +1099,6 @@ a:not(.cta-primary):not(.cta-secondary):not(.card-btn):not(.btn-whatsapp):not(.n
     <div style="font-size:12px;color:var(--ink3);letter-spacing:0.5px;">
       Você manda seu conteúdo e eu retorno com um caminho claro pra seu Instagram.
     </div>
-  </div>
-</section>
-
-
-<!-- ===== SEÇÃO CHECKOUT PRO ===== -->
-<section id="checkout-pix">
-  <div class="pix-container">
-    <div class="pix-header">
-      <div class="badge">Pagamento Rápido</div>
-      <h3>Pague com <em>Pix</em></h3>
-      <p>Você será redirecionado para o ambiente seguro do Mercado Pago (Pix online).</p>
-    </div>
-
-    <form id="pixForm" class="pix-form">
-      <div class="field-group">
-        <label for="pixAmount">Valor (R$)</label>
-        <div class="input-wrapper">
-          <span class="currency-symbol">R$</span>
-          <input type="text" id="pixAmount" class="with-currency" value="97,00" placeholder="0,00" required/>
-        </div>
-      </div>
-
-      <button type="submit" id="generatePixBtn" class="btn-primary">
-        <span class="btn-text">Pagar com Pix</span>
-        <span class="spinner"></span>
-      </button>
-    </form>
-
-    <div id="pixError" class="pix-error">Erro ao iniciar pagamento. Tente novamente.</div>
   </div>
 </section>
 
@@ -1186,6 +1372,37 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
   </div>
 </section>
 
+<!-- ===== SEÇÃO CHECKOUT PRO ===== -->
+<section id="checkout-pix">
+  <div class="pix-container">
+    <div class="pix-header">
+      <div class="badge">Pagamento Seguro</div>
+      <h3>Pague com <em>Pix</em></h3>
+      <p>Você será redirecionado para o ambiente seguro do Mercado Pago (Pix online). Transação 100% protegida.</p>
+    </div>
+
+    <form id="pixForm" class="pix-form">
+      <div class="field-group">
+        <label for="pixAmount">Valor (R$)</label>
+        <div class="input-wrapper">
+          <span class="currency-symbol">R$</span>
+          <input type="text" id="pixAmount" class="with-currency" value="97,00" placeholder="0,00" required/>
+        </div>
+      </div>
+
+      <button type="submit" id="generatePixBtn" class="btn-primary">
+        <span class="btn-text">Pagar com Pix</span>
+        <span class="spinner"></span>
+      </button>
+    </form>
+
+    <div id="pixError" class="pix-error">Erro ao iniciar pagamento. Tente novamente.</div>
+    <button type="button" id="pixRetryBtn" class="btn-secondary" style="display:none;">
+      🔄 Tentar Novamente
+    </button>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="sec-eyebrow">Vamos conversar</div>
@@ -1195,6 +1412,25 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
      QUERO MEU ORÇAMENTO GRATUITO
   </a>
   <div class="checklist">✔ Orçamento gratuito &nbsp;&nbsp; ✔ Sem compromisso &nbsp;&nbsp; ✔ Resposta em até 24h</div>
+  
+  <!-- Contact Form -->
+  <div class="contact-form-wrapper reveal">
+    <p style="font-size:13px;color:var(--ink3);margin:30px 0 15px;text-align:center;">Prefere enviar uma mensagem?</p>
+    <form id="contactForm" class="contact-form">
+      <div class="form-group">
+        <input type="text" id="contactName" placeholder="Seu nome" required/>
+      </div>
+      <div class="form-group">
+        <input type="email" id="contactEmail" placeholder="Seu email" required/>
+      </div>
+      <div class="form-group">
+        <textarea id="contactMessage" placeholder="Sua mensagem" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn-secondary" style="margin-top:0;">📧 Enviar Mensagem</button>
+    </form>
+    <div id="contactStatus" style="display:none;margin-top:12px;padding:12px;border-radius:8px;text-align:center;font-size:13px;"></div>
+  </div>
+  
   <div class="socials reveal">
     <a href="https://instagram.com/yan.epifanio" class="soc" target="_blank" rel="noreferrer">Instagram</a>
     <a href="https://www.behance.net/yandossantos1" class="soc" target="_blank" rel="noreferrer">Behance</a>
@@ -1229,6 +1465,19 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
 <script>
 (function() {
 
+  // GOOGLE ANALYTICS TRACKING
+  window.trackEvent = function(eventName, category, params) {
+    if (window.gtag) {
+      var eventData = {
+        event_category: category,
+        event_label: eventName
+      };
+      if (params) {
+        Object.assign(eventData, params);
+      }
+      gtag('event', eventName, eventData);
+    }
+  };
 
   // MOBILE MENU
   window.toggleMobileMenu = function(open) {
@@ -1283,6 +1532,7 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
           if (!video.dataset.loaded) {
             video.load();
             video.dataset.loaded = 'true';
+            video.classList.remove('video-skeleton');
           }
           video.play().catch(function() {});
         } else {
@@ -1290,13 +1540,27 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
         }
       });
     }, { threshold: 0.25, rootMargin: '80px 0px' });
-    lazyVideos.forEach(function(video) { vo.observe(video); });
+    lazyVideos.forEach(function(video) { 
+      video.dataset.loaded = 'false';
+      video.classList.add('video-skeleton');
+      vo.observe(video); 
+    });
+  }
+
+  // HERO VIDEO (carrega imediatamente pois está na viewport)
+  var heroVideo = document.querySelector('.hero-main-video');
+  if (heroVideo) {
+    heroVideo.dataset.loaded = 'true';
+    heroVideo.addEventListener('loadeddata', function() {
+      this.style.opacity = '1';
+    });
   }
 
   // ===== CHECKOUT PRO (redirect para Mercado Pago) =====
   var pixForm = document.getElementById('pixForm');
   var generateBtn = document.getElementById('generatePixBtn');
   var pixError = document.getElementById('pixError');
+  var pixRetryBtn = document.getElementById('pixRetryBtn');
   var amountInput = document.getElementById('pixAmount');
 
   // Máscara de valor (formato brasileiro)
@@ -1331,7 +1595,14 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
     var amount = parseFloat(rawValue);
 
     if (isNaN(amount) || amount <= 0) {
-      alert('Por favor, insira um valor válido.');
+      pixError.textContent = '❌ Por favor, insira um valor válido (mínimo R$ 50,00).';
+      pixError.classList.add('visible');
+      return;
+    }
+
+    if (amount < 50) {
+      pixError.textContent = '⚠️ Valor mínimo é R$ 50,00. Aumente o valor para continuar.';
+      pixError.classList.add('visible');
       return;
     }
 
@@ -1370,6 +1641,7 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
 
       var redirectUrl = (data && data.redirect_url) ? data.redirect_url : null;
       if (redirectUrl) {
+        trackEvent('begin_checkout', 'pix', {value: amount, currency: 'BRL'});
         window.location.href = redirectUrl;
         return;
       }
@@ -1380,10 +1652,80 @@ Essa experiência influencia diretamente a qualidade, organização e padrão vi
       console.error('Erro no pagamento:', error);
       pixError.textContent = 'Erro ao iniciar pagamento: ' + error.message;
       pixError.classList.add('visible');
+      trackEvent('payment_error', 'pix', {error: error.message});
 
       generateBtn.classList.remove('loading');
       generateBtn.disabled = false;
+      pixRetryBtn.style.display = 'inline-flex';
     }
+  });
+
+  // Retry button
+  pixRetryBtn.addEventListener('click', function() {
+    pixError.classList.remove('visible');
+    pixRetryBtn.style.display = 'none';
+    pixForm.dispatchEvent(new Event('submit'));
+  });
+
+  // ===== CONTACT FORM =====
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    var name = document.getElementById('contactName').value.trim();
+    var email = document.getElementById('contactEmail').value.trim();
+    var message = document.getElementById('contactMessage').value.trim();
+    
+    if (!name || !email || !message) {
+      contactStatus.textContent = '❌ Preencha todos os campos.';
+      contactStatus.classList.remove('success');
+      contactStatus.classList.add('error');
+      contactStatus.style.display = 'block';
+      return;
+    }
+    
+    var submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    
+    try {
+      // Envia para FormSubmit.co
+      var response = await fetch('https://formsubmit.co/ajax/yan.epifanio@gmail.com', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          _captcha: 'false'
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      trackEvent('form_submitted', 'contact', {name: name, email: email});
+      
+      if (response.ok) {
+        contactStatus.textContent = '✅ Mensagem enviada! Respondo em até 24h.';
+        contactStatus.classList.remove('error');
+        contactStatus.classList.add('success');
+        contactStatus.style.display = 'block';
+        contactForm.reset();
+        document.getElementById('contactName').focus();
+      } else {
+        throw new Error('Erro ao enviar');
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+      contactStatus.textContent = '❌ Erro ao enviar. Tente novamente.';
+      contactStatus.classList.remove('success');
+      contactStatus.classList.add('error');
+      contactStatus.style.display = 'block';
+      trackEvent('form_error', 'contact', {error: error.message});
+    }
+    
+    submitBtn.disabled = false;
   });
 
 })();

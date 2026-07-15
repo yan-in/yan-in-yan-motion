@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /index.html
+
+Disallow: 
+
+Sitemap: https://yanepifanio.com.br/sitemap.xml
+
+# Padrão de rastreamento (crawl-delay opcional)
+Crawl-delay: 1
+
+# Evita duplicação
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
