@@ -8,7 +8,9 @@ Site estático, sem etapa de build ou dependências de pacote.
 - `success.html`, `pending.html`, `failure.html`: páginas de retorno do checkout.
 - `css/yan.css`: identidade visual compartilhada, incluindo páginas de pagamento.
 - `js/yan.js`, `js/orcamento.js`: interações da página inicial, checkout e questionário.
-- `assets/`: vídeos, imagem de perfil e fonte Satoshi variável.
+- `assets/videos/`: três cases e o vídeo vertical de Reels.
+- `assets/images/`: imagem Open Graph e foto da seção de experiência.
+- `assets/fonts/`: fonte Satoshi variável.
 - `robots.txt`, `sitemap.xml`, `CNAME`: indexação e domínio do site.
 - `GOOGLE_ANALYTICS_SETUP.md`, `SEO_GEMINI_GUIDE.md`: referências de Analytics e indexação.
 

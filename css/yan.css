@@ -1,7 +1,7 @@
 /* =====================================================================
    YAN EPIFANIO — site (home + orçamento)
    Página fluida: container de 1280px, mobile (< 900px) em coluna com a
-   barra fixa de ações. Mesmas convenções do site OFFLINE'27: BEM,
+   barra fixa de ações. Convenções BEM,
    revelação ao rolar (.rv + .is-in), header .is-solid / .is-open,
    acordeão .accordion__item.is-open e prefers-reduced-motion.
    ===================================================================== */
@@ -23,7 +23,7 @@
   --on-light: #4b4b52;
   --on-light-2: #292a30;
   --accent: #f4f4f5;
-  --budget-accent: #d7ff3a;
+  --signal: #c4ff3d;
   --whatsapp: #25d366;
 
   --display: "Satoshi", "Helvetica Neue", Arial, sans-serif;
@@ -95,16 +95,20 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   transition: background .25s, color .25s, border-color .25s, scale .25s var(--ease-out), filter .25s;
 }
 .btn--accent { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-.btn--budget { background: var(--budget-accent); border-color: var(--budget-accent); color: var(--bg); }
-.btn--whatsapp { background: var(--whatsapp); border-color: var(--whatsapp); color: var(--bg); }
+.btn--budget { background: var(--signal); border-color: var(--signal); color: var(--bg); }
+.btn--whatsapp { background: transparent; border-color: var(--border-3); color: var(--fg); }
 .btn--ghost { background: transparent; border-color: var(--border-3); color: var(--fg); }
 .btn--dark { background: var(--bg); border-color: var(--bg); color: var(--light); }
 .btn--sm { min-height: 44px; padding: 12px 20px; font-size: 15px; }
 .btn--lg { min-height: 56px; padding: 18px 30px; font-size: 18px; }
 .btn:hover { scale: 1.03; filter: brightness(1.06); }
-.btn--ghost:hover { border-color: var(--fg); filter: none; }
+.btn--accent:hover { background: transparent; border-color: var(--fg); color: var(--fg); filter: none; }
+.btn--budget:hover { background: transparent; border-color: var(--signal); color: var(--signal); filter: none; }
+.btn--whatsapp:hover, .btn--ghost:hover { background: var(--fg); border-color: var(--fg); color: var(--bg); filter: none; }
+.btn--dark:hover { background: transparent; border-color: var(--bg); color: var(--bg); filter: none; }
 .btn:active { scale: .98; }
 .btn svg { flex: 0 0 auto; }
+.btn--whatsapp svg, .buybar__whats svg { color: var(--whatsapp); }
 
 /* =====================================================================
    HEADER
@@ -230,14 +234,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   overflow: hidden;
   transition: translate .3s var(--ease-out);
 }
-.reel__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .48; }
-.reel::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13, 13, 11, .16), rgba(13, 13, 11, .78)); pointer-events: none; }
+.reel__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .reel__file, .reel__name { position: relative; z-index: 1; }
 .reel:nth-child(1) { transform: translateY(24px); }
 .reel:nth-child(3) { transform: translateY(48px); }
 .reel--active { background: var(--card-3); border-color: var(--accent); }
-.reel__file { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-.reel__name { font-weight: 700; font-size: 15px; }
+.reel__file { font-family: var(--mono); font-size: 12px; color: var(--fg); text-shadow: 0 1px 5px rgba(0, 0, 0, .8); }
+.reel__name { font-weight: 700; font-size: 15px; text-shadow: 0 1px 5px rgba(0, 0, 0, .8); }
 
 /* =====================================================================
    PROVAS (faixa de números)
@@ -303,11 +306,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .chip:hover { border-color: var(--fg); }
 .chip.is-active, .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); font-weight: 700; }
-.cases__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-.case { display: flex; flex-direction: column; gap: 16px; }
+.cases__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; padding-inline: var(--gutter); }
+.case { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 320px; margin-inline: auto; }
 .case[hidden] { display: none; }
 .case__media {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 9 / 16;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -351,10 +354,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .plan__head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .plan__name { font-weight: 700; font-size: 20px; }
 .plan__badge {
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--bg);
+  padding: 7px 12px;
+  border: 1px solid var(--bg);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--light);
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
@@ -362,7 +366,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .plan__price { font-family: var(--display); font-weight: 900; font-size: 56px; line-height: 1; }
 .plan__per { font-family: var(--sans); font-weight: 400; font-size: 17px; color: var(--muted); }
 .plan__list { display: flex; flex-direction: column; gap: 10px; font-size: 15px; flex-grow: 1; }
-.plan__list li::before { content: "✓ "; }
+.plan__list li::before { content: "\2713\0020"; }
 .plan__cta { min-height: 48px; padding: 14px; }
 .plan--featured { background: var(--light); border-color: var(--light); color: var(--bg); position: relative; }
 .plan--featured .plan__per { color: var(--on-light); }
@@ -388,12 +392,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .offer__desc { color: var(--muted); font-size: 15px; }
 .offer__price { font-family: var(--display); font-weight: 900; font-size: 36px; line-height: 1.2; }
 .offer__price small { font-family: var(--sans); font-weight: 400; font-size: 14px; color: var(--muted); }
+.sites__note { max-width: 680px; padding-top: 16px; color: var(--muted); font-size: 14px; }
 
 /* =====================================================================
-   EVENTOS & LED (bloco claro)
+   EDIÇÃO & REELS (bloco claro)
    ===================================================================== */
-.eventos { margin-top: 112px; padding: 0; background: var(--light); color: var(--bg); }
-.eventos__inner {
+.reels { margin-top: 112px; padding: 0; background: var(--light); color: var(--bg); }
+.reels__inner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -401,13 +406,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   padding-top: 96px;
   padding-bottom: 96px;
 }
-.eventos__text { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
-.eventos__text .eyebrow { color: var(--on-light); }
-.eventos__title { font-size: 60px; line-height: 1.04; letter-spacing: -.02em; }
-.eventos__lead { max-width: 520px; font-size: 19px; color: var(--on-light-2); }
+.reels__text { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.reels__text .eyebrow { color: var(--on-light); }
+.reels__title { font-size: 60px; line-height: 1.04; letter-spacing: -.02em; }
+.reels__lead { max-width: 520px; font-size: 19px; color: var(--on-light-2); }
 .tags { display: flex; flex-wrap: wrap; gap: 10px; font-size: 14px; }
 .tag { padding: 8px 14px; border: 1px solid var(--bg); border-radius: 999px; }
-.eventos__video {
+.reels__video {
   flex: 0 1 380px;
   width: 100%;
   max-width: 380px;
@@ -425,7 +430,37 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   font-family: var(--mono);
   font-size: 13px;
 }
-.eventos__video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: var(--bg); }
+.reels__video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: var(--bg); }
+
+/* =====================================================================
+   EXPERIÊNCIA EM PAINÉIS LED
+   ===================================================================== */
+.led-case { padding-top: 48px; }
+.led-case__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--line-2);
+  border-radius: 28px;
+  background: var(--card);
+}
+.led-case__media {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--card-2);
+}
+.led-case__media img { width: 100%; height: 100%; object-fit: cover; }
+.led-case__content { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+.led-case__title { max-width: 620px; font-size: clamp(40px, 5vw, 64px); line-height: 1.04; letter-spacing: -.02em; }
+.led-case__lead { max-width: 560px; color: var(--muted-2); font-size: 18px; }
 
 /* =====================================================================
    PROCESSO
@@ -603,7 +638,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .quiz__step.is-done { color: var(--fg); }
 .quiz__step.is-done .quiz__step-num { background: var(--accent); border-color: var(--accent); color: var(--bg); }
 .quiz__perks { margin-top: auto; display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--muted); }
-.quiz__perks li::before { content: "✓ "; }
+.quiz__perks li::before { content: "\2713\0020"; }
 
 .quiz__main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 28px; padding: 48px 56px; }
 .quiz__panel { display: flex; flex-direction: column; gap: 24px; }
@@ -657,17 +692,17 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .quiz__back { min-height: 48px; padding: 12px 22px; }
 .quiz__back[disabled] { opacity: .35; cursor: default; }
-.quiz__back[disabled]:hover { scale: 1; border-color: var(--border-3); }
+.quiz__back[disabled]:hover { scale: 1; background: transparent; border-color: var(--border-3); color: var(--fg); filter: none; }
 .quiz__next { padding: 15px 26px; }
 .quiz__next[disabled] { background: var(--border-3); border-color: var(--border-3); cursor: default; }
-.quiz__next[disabled]:hover { scale: 1; filter: none; }
+.quiz__next[disabled]:hover { scale: 1; background: var(--border-3); border-color: var(--border-3); color: var(--bg); filter: none; }
 .quiz__send { padding: 15px 26px; }
 .quiz__next[hidden], .quiz__send[hidden] { display: none; }
 
 /* =====================================================================
    ANIMAÇÕES
    ===================================================================== */
-/* entrada do hero (mesmo esquema do OFFLINE'27: .anim + --d) */
+/* entrada do hero */
 .anim {
   animation-duration: 1s;
   animation-timing-function: var(--ease-out);
@@ -735,7 +770,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .reel--active:hover { border-color: var(--accent); }
 .hero__reels { will-change: translate; }
 .case__media > video, .case__media > img { transition: scale .6s var(--ease-out); }
-.case:hover .case__media > video, .case:hover .case__media > img { scale: 1.04; }
+.case:hover .case__media > img { scale: 1.04; }
 .plan { transition: translate .3s var(--ease-out), border-color .3s; }
 .plan:hover { translate: 0 -4px; border-color: var(--border-3); }
 .plan--featured:hover { border-color: var(--light); }
@@ -852,13 +887,19 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .stat__label { font-size: 12px; }
 
   /* ---- demais seções ---- */
+  .cases__grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px 16px; }
   .route { min-height: 0; padding: 22px; }
   .plan { padding: 24px; }
   .plan__price { font-size: 44px; }
-  .eventos { margin-top: 72px; }
-  .eventos__inner { padding-top: 64px; padding-bottom: 64px; gap: 32px; }
-  .eventos__title { font-size: 40px; }
-  .eventos__lead { font-size: 17px; }
+  .reels { margin-top: 72px; }
+  .reels__inner { padding-top: 64px; padding-bottom: 64px; gap: 32px; }
+  .reels__title { font-size: 40px; }
+  .reels__lead { font-size: 17px; }
+  .led-case { padding-top: 48px; }
+  .led-case__inner { grid-template-columns: 1fr; gap: 28px; padding: 20px; }
+  .led-case__media { width: 100%; max-width: 320px; }
+  .led-case__title { font-size: 36px; }
+  .led-case__lead { font-size: 16px; }
   .pix__box { padding: 24px; border-radius: 22px; }
   .pix__title { font-size: 26px; }
   .cta { padding: 80px 0 64px; }
@@ -884,6 +925,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero__reels { will-change: auto; }
   .buybar.is-hidden { transform: translateY(120%); opacity: 0; pointer-events: none; }
   .buybar__btn { flex: 1; min-height: 52px; padding: 12px 16px; font-size: 16px; }
+  .buybar__btn:hover { background: var(--bg); border-color: var(--bg); color: var(--light); }
   .buybar__whats {
     flex: 0 0 52px;
     width: 52px;
@@ -892,9 +934,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--whatsapp);
-    color: var(--bg);
+    border: 1px solid var(--border-3);
+    background: transparent;
+    color: var(--fg);
   }
+  .buybar__whats:hover { background: var(--fg); border-color: var(--fg); }
 
   /* ---- orçamento ---- */
   .quiz { flex-direction: column; min-height: 0; }

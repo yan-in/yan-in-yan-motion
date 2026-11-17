@@ -1,7 +1,7 @@
 /* =====================================================================
-   YAN EPIFANIO — home. Mesmos padrões do site OFFLINE'27 (js/main.js):
-   header sólido ao rolar, menu mobile, rolagem animada para âncoras,
-   link ativo, revelação ao rolar (.rv), acordeão e barra fixa.
+   YAN EPIFANIO — home.
+   Header, menu mobile, rolagem para âncoras, link ativo, revelação (.rv),
+   acordeão e barra fixa de ações.
    ===================================================================== */
 (function () {
   'use strict';
