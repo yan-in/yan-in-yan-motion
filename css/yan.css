@@ -951,6 +951,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .quiz__next, .quiz__send { flex: 1 1 auto; }
 }
 
+@media (max-width: 599px) {
+  .cases__grid { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-inline: 0; }
+  .case { max-width: min(100%, clamp(240px, 72vw, 300px)); }
+  .case__head { flex-wrap: wrap; }
+}
+
 /* ---- retorno do pagamento ---- */
 .status-page {
   display: grid;
