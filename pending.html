@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aguardando Pagamento | Yan Epifanio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/yan.css?v=9">
   
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MB823YVY9Y"></script>
@@ -18,66 +22,20 @@
       status: 'pending'
     });
   </script>
-
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: #050505;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    .box {
-      max-width: 480px;
-      width: 100%;
-      background: #121212;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px;
-      padding: 48px 32px;
-      text-align: center;
-    }
-    .loader {
-      border: 4px solid rgba(255,255,255,0.1);
-      border-left-color: #00a650;
-      height: 48px;
-      width: 48px;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 20px;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    h2 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
-    p { color: rgba(255,255,255,0.7); font-size: 16px; line-height: 1.6; margin-bottom: 8px; }
-    .debug { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.35); word-break: break-all; }
-    .btn-home {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 999px;
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: .2s;
-    }
-    .btn-home:hover { background: rgba(255,255,255,0.10); color: #fff; }
-  </style>
 </head>
 <body>
-  <div class="box">
-    <div class="loader"></div>
-    <h2>Aguardando Pagamento...</h2>
-    <p>Identificamos sua ordem de pagamento.<br>Assim que o pagamento for confirmado, você será redirecionado automaticamente.</p>
-    <p style="font-size:14px; color:rgba(255,255,255,0.5);">⏳ Não feche esta página</p>
-    <div class="debug" id="debug">Carregando...</div>
-    <a href="https://yanepifanio.com.br" class="btn-home">← Voltar para o início</a>
-  </div>
+  <main class="status-page">
+    <section class="status-card" aria-labelledby="status-title">
+      <div class="status-spinner" aria-hidden="true"></div>
+      <h1 class="status-title" id="status-title">Aguardando pagamento</h1>
+      <p class="status-message">Identificamos sua ordem de pagamento. Assim que o pagamento for confirmado, você será redirecionado automaticamente.</p>
+      <p class="status-note">Não feche esta página.</p>
+      <p class="status-detail" id="debug" role="status" aria-live="polite">Carregando...</p>
+      <div class="status-actions">
+        <a href="https://yanepifanio.com.br" class="btn btn--ghost">Voltar para o início</a>
+      </div>
+    </section>
+  </main>
 
   <script>
     (function() {
@@ -86,7 +44,7 @@
       const debugEl = document.getElementById('debug');
 
       if (!paymentId) {
-        debugEl.textContent = '⚠️ Nenhum ID de pagamento encontrado.';
+        debugEl.textContent = 'Nenhum ID de pagamento encontrado.';
         return;
       }
 
@@ -94,6 +52,22 @@
 
       let attempts = 0;
       const maxAttempts = 120; // 120 * 3s = 6 minutos
+
+      function recordPurchaseAndRedirect() {
+        let redirected = false;
+        function redirect() {
+          if (redirected) return;
+          redirected = true;
+          window.location.assign(`/success.html?payment_id=${encodeURIComponent(paymentId)}`);
+        }
+
+        gtag('event', 'purchase', {
+          transaction_id: paymentId,
+          event_callback: redirect,
+          event_timeout: 1500
+        });
+        setTimeout(redirect, 1800);
+      }
 
       async function checkStatus() {
         try {
@@ -107,20 +81,20 @@
           try {
             data = JSON.parse(raw);
           } catch (_) {
-            debugEl.textContent = '⚠️ Erro ao processar resposta do servidor. Tentando novamente...';
+            debugEl.textContent = 'Erro ao processar resposta do servidor. Tentando novamente...';
             setTimeout(checkStatus, 5000);
             return;
           }
 
           if (!response.ok) {
-            debugEl.textContent = `⚠️ Erro ${response.status}: ${data.error || 'Falha na consulta'}. Tentando novamente...`;
+            debugEl.textContent = `Erro ${response.status}: ${data.error || 'Falha na consulta'}. Tentando novamente...`;
             setTimeout(checkStatus, 5000);
             return;
           }
 
           // ✅ Redireciona para sucesso
           if (data.status === 'approved') {
-            window.location.href = `/success.html?payment_id=${encodeURIComponent(paymentId)}`;
+            recordPurchaseAndRedirect();
             return;
           }
 
@@ -138,7 +112,7 @@
           // ⏳ Ainda pendente (in_process, pending, etc.)
           attempts++;
           if (attempts >= maxAttempts) {
-            debugEl.textContent = '⏳ O pagamento está demorando mais que o esperado. Você pode verificar manualmente ou tentar novamente.';
+            debugEl.textContent = 'O pagamento está demorando mais que o esperado. Você pode verificar manualmente ou tentar novamente.';
             return;
           }
 
@@ -147,7 +121,7 @@
 
         } catch (error) {
           console.error('Erro ao verificar status:', error);
-          debugEl.textContent = '⚠️ Erro ao consultar status. Tentando novamente...';
+          debugEl.textContent = 'Erro ao consultar status. Tentando novamente...';
           setTimeout(checkStatus, 5000);
         }
       }

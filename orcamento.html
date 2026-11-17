@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orçamento em 2 minutos — Yan Epifanio</title>
+  <meta name="description" content="3 perguntas. No final, a mensagem já vai pronta para o WhatsApp — sem formulário perdido.">
+  <meta name="theme-color" content="#0d0d0b">
+  <meta name="robots" content="noindex">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/yan.css?v=9">
+</head>
+<body>
+
+  <div class="quiz" id="quiz" data-whats="5585996149074">
+
+    <aside class="quiz__aside">
+      <a class="quiz__logo" href="index.html">YAN EPIFANIO</a>
+      <div class="quiz__intro">
+        <h1 class="quiz__title">Orçamento em 2 minutos</h1>
+        <p>3 perguntas. No final, a mensagem já vai pronta para o WhatsApp — sem formulário perdido.</p>
+      </div>
+      <ol class="quiz__steps" id="quiz-steps" aria-label="Etapas">
+        <li class="quiz__step is-current" data-step="1"><span class="quiz__step-num" aria-hidden="true">1</span><span>Objetivo</span></li>
+        <li class="quiz__step" data-step="2"><span class="quiz__step-num" aria-hidden="true">2</span><span>Segmento e prazo</span></li>
+        <li class="quiz__step" data-step="3"><span class="quiz__step-num" aria-hidden="true">3</span><span>Contato e envio</span></li>
+      </ol>
+      <ul class="quiz__perks">
+        <li>Orçamento gratuito</li><li>Sem compromisso</li><li>Resposta em até 24h</li>
+      </ul>
+    </aside>
+
+    <main class="quiz__main">
+
+      <!-- pergunta 1 -->
+      <section class="quiz__panel" data-panel="1">
+        <span class="eyebrow">PERGUNTA 1 DE 3</span>
+        <h2 class="quiz__q">Qual é o objetivo principal?</h2>
+        <div class="goals" role="group" aria-label="Objetivo" data-pick="goal">
+          <button class="goal" type="button" aria-pressed="false" data-value="Conteúdo mensal"><span class="goal__title">Conteúdo mensal</span><span class="goal__sub">Reels, Feed e Stories toda semana</span></button>
+          <button class="goal" type="button" aria-pressed="false" data-value="Site ou landing page"><span class="goal__title">Site ou landing page</span><span class="goal__sub">Vender e captar leads</span></button>
+          <button class="goal" type="button" aria-pressed="false" data-value="Campanha em vídeo"><span class="goal__title">Campanha em vídeo</span><span class="goal__sub">Ads, institucional, lançamento</span></button>
+          <button class="goal" type="button" aria-pressed="false" data-value="Evento ou telão LED"><span class="goal__title">Evento ou telão LED</span><span class="goal__sub">Loops, painéis, outdoor digital</span></button>
+        </div>
+      </section>
+
+      <!-- pergunta 2 -->
+      <section class="quiz__panel" data-panel="2" hidden>
+        <span class="eyebrow">PERGUNTA 2 DE 3</span>
+        <h2 class="quiz__q">Qual é o seu segmento?</h2>
+        <div class="chips" role="group" aria-label="Segmento" data-pick="niche">
+          <button class="chip" type="button" aria-pressed="false" data-value="Academia / fitness">Academia / fitness</button>
+          <button class="chip" type="button" aria-pressed="false" data-value="Restaurante / food">Restaurante / food</button>
+          <button class="chip" type="button" aria-pressed="false" data-value="Eventos / casamento">Eventos / casamento</button>
+          <button class="chip" type="button" aria-pressed="false" data-value="Saúde / estética">Saúde / estética</button>
+          <button class="chip" type="button" aria-pressed="false" data-value="Varejo / e-commerce">Varejo / e-commerce</button>
+          <button class="chip" type="button" aria-pressed="false" data-value="Outro">Outro</button>
+        </div>
+        <h3 class="quiz__sub">Para quando você precisa?</h3>
+        <div class="chips" role="group" aria-label="Prazo" data-pick="deadline">
+          <button class="chip" type="button" aria-pressed="false" data-value="Esta semana">Esta semana</button>
+          <button class="chip" type="button" aria-pressed="false" data-value="Este mês">Este mês</button>
+          <button class="chip" type="button" aria-pressed="false" data-value="Sem pressa">Sem pressa</button>
+        </div>
+      </section>
+
+      <!-- pergunta 3 -->
+      <section class="quiz__panel" data-panel="3" hidden>
+        <span class="eyebrow">PERGUNTA 3 DE 3</span>
+        <h2 class="quiz__q">Como posso te chamar?</h2>
+        <div class="quiz__fields">
+          <label class="field">Seu nome
+            <input type="text" id="quiz-name" placeholder="Ex.: Ana" autocomplete="given-name" maxlength="60">
+          </label>
+          <label class="field">Instagram ou site da marca
+            <input type="text" id="quiz-handle" placeholder="@suamarca" autocomplete="off" maxlength="80">
+          </label>
+        </div>
+        <div class="preview">
+          <span class="preview__label">PRÉVIA DA MENSAGEM</span>
+          <p class="preview__text" id="quiz-preview" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <div class="quiz__foot">
+        <button class="btn btn--ghost quiz__back" id="quiz-back" type="button" disabled>Voltar</button>
+        <button class="btn btn--accent quiz__next" id="quiz-next" type="button" disabled>Continuar</button>
+        <a class="btn btn--accent btn--whatsapp quiz__send" id="quiz-send" href="https://wa.me/5585996149074" target="_blank" rel="noopener" hidden>Enviar no WhatsApp
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/orcamento.js?v=4"></script>
+</body>
+</html>

@@ -1,11 +1,28 @@
-# yan-in-yan-motion
+# Yan Epifanio — site do estúdio
 
-Landing page estática do estúdio (HTML/CSS/JS embutidos).
+Site estático, sem etapa de build ou dependências de pacote.
 
-## Como publicar
-- Hospedagem recomendada: **Cloudflare Pages** (ideal para sites estáticos).
-- Faça o build apontando para a raiz do repositório (inclui `index.html` e a pasta `assets/`).
+## Estrutura
+- `index.html`: portfólio, serviços e checkout Pix.
+- `orcamento.html`: questionário que prepara uma mensagem para o WhatsApp.
+- `success.html`, `pending.html`, `failure.html`: páginas de retorno do checkout.
+- `css/yan.css`: identidade visual compartilhada, incluindo páginas de pagamento.
+- `js/yan.js`, `js/orcamento.js`: interações da página inicial, checkout e questionário.
+- `assets/`: vídeos, imagem de perfil e fonte Satoshi variável.
+- `robots.txt`, `sitemap.xml`, `CNAME`: indexação e domínio do site.
+- `GOOGLE_ANALYTICS_SETUP.md`, `SEO_GEMINI_GUIDE.md`: referências de Analytics e indexação.
 
-## Conteúdo / Oferta
-A narrativa do site foi ajustada para reposicionar a entrega como **criação de conteúdo em vídeo de alto impacto** (edição e vídeos dinâmicos por formato: Stories/Feed/Reels).
+## Publicação
+
+Publique a raiz do repositório em uma hospedagem estática, como Cloudflare Pages. Não é necessário instalar dependências nem executar build. Todas as páginas de retorno do Mercado Pago e seus arquivos referenciados devem permanecer publicados.
+
+## Fluxos importantes
+
+- O formulário de orçamento monta uma mensagem para o WhatsApp.
+- O checkout Pix é iniciado em `js/yan.js`; `pending.html` consulta o status e redireciona para a página de sucesso ou falha.
+- `success.html`, `pending.html` e `failure.html` não devem ser incluídas no sitemap.
+
+## Identidade visual
+
+Base em preto, branco e cinza; títulos em Satoshi variável; DM Sans para textos; verde para WhatsApp e verde-limão para ações de orçamento.
 

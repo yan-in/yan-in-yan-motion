@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pagamento Confirmado | Yan Epifanio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/yan.css?v=9">
   
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MB823YVY9Y"></script>
@@ -13,76 +17,18 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-MB823YVY9Y');
-    // Rastrear conversão
-    gtag('event', 'purchase', {
-      value: 'pagamento_recebido',
-      currency: 'BRL',
-      transaction_id: new Date().getTime()
-    });
   </script>
-
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      background: #050505;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    .box {
-      max-width: 480px;
-      width: 100%;
-      background: #121212;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 24px;
-      padding: 48px 32px;
-      text-align: center;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-    }
-    .icon {
-      font-size: 64px;
-      color: #00a650;
-      margin-bottom: 16px;
-    }
-    h2 {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
-    }
-    p {
-      color: rgba(255,255,255,0.7);
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    a {
-      display: inline-block;
-      padding: 14px 32px;
-      background: #25D366;
-      color: #fff;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 999px;
-      transition: .3s;
-      font-size: 16px;
-    }
-    a:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 30px rgba(37,211,102,0.3);
-    }
-  </style>
 </head>
 <body>
-  <div class="box">
-    <div class="icon">✓</div>
-    <h2>Pagamento Confirmado!</h2>
-    <p>Obrigado! Seu pagamento foi processado com sucesso.<br>Entrarei em contato em breve para iniciarmos o projeto.</p>
-    <a href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20acabei%20de%20pagar%20o%20Pix!">Falar com Yan no WhatsApp</a>
-  </div>
+  <main class="status-page">
+    <section class="status-card" aria-labelledby="status-title">
+      <div class="status-icon status-icon--success" aria-hidden="true">✓</div>
+      <h1 class="status-title" id="status-title">Pagamento confirmado</h1>
+      <p class="status-message">Obrigado! Seu pagamento foi processado com sucesso. Entrarei em contato em breve para iniciarmos o projeto.</p>
+      <div class="status-actions">
+        <a class="btn btn--whatsapp" href="https://wa.me/5585996149074?text=Ol%C3%A1%20Yan%2C%20acabei%20de%20pagar%20o%20Pix!">Falar com Yan no WhatsApp</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
