@@ -15,12 +15,18 @@
 
   /* ---------- header: sombra ao rolar; recolhe ao descer, volta ao subir ---------- */
   var lastY = window.scrollY;
+  function updateBuybar() {
+    if (!buybar) return;
+    buybar.classList.toggle('is-hidden', window.scrollY < 240 || header.classList.contains('is-open'));
+  }
+
   function onScroll() {
     var y = window.scrollY;
     header.classList.toggle('is-solid', y > 30);
     var down = y > lastY + 4, up = y < lastY - 4;
     if (down && y > 240 && !header.classList.contains('is-open')) header.classList.add('is-hidden');
     else if (up || y <= 240) header.classList.remove('is-hidden');
+    updateBuybar();
     if (down || up) lastY = y;
   }
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -34,7 +40,7 @@
     document.body.classList.toggle('no-scroll', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    if (buybar) buybar.classList.toggle('is-hidden', open);
+    updateBuybar();
     if (open) header.classList.remove('is-hidden');
   }
   burger.addEventListener('click', function () { setMenu(!header.classList.contains('is-open')); });

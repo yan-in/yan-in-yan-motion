@@ -73,7 +73,7 @@ button { font: inherit; color: inherit; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
-.sec { padding: 112px 0 40px; scroll-margin-top: calc(var(--header-h) - 16px); }
+.sec { padding-top: 112px; padding-bottom: 40px; scroll-margin-top: calc(var(--header-h) - 16px); }
 .sec__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 24px; }
 .sec__title { font-size: 56px; line-height: 1.05; letter-spacing: -.02em; }
 .sec__lead { max-width: 380px; color: var(--muted); }
@@ -806,7 +806,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 899px) {
   :root { --gutter: 16px; --header-h: 81px; }
   body { font-size: 16px; }
-  .sec { padding: 72px 0 24px; }
+  .sec { padding-top: 72px; padding-bottom: 24px; }
   .sec__title { font-size: 36px; }
 
   /* ---- header ---- */
@@ -854,35 +854,30 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .hero__dot { width: 7px; height: 7px; }
   .hero__title { font-size: 42px; line-height: 1.05; }
   .hero__lead { font-size: 16px; line-height: 1.5; }
-  .hero__actions { display: none; } /* a barra fixa assume as ações */
+  .hero__actions { display: flex; }
+  .hero__actions .btn--ghost { display: none; }
   .hero__reels {
     flex-basis: 100%;
-    display: flex;
-    gap: 10px;
-    margin: 0 calc(-1 * var(--gutter));
-    padding: 0 var(--gutter);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--gutter);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    min-width: 0;
   }
-  .hero__reels::-webkit-scrollbar { display: none; }
   .reel {
-    flex: 0 0 132px;
-    aspect-ratio: auto;
-    height: 234px;
-    padding: 12px;
-    border-radius: 16px;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 9 / 16;
+    height: auto;
+    padding: 8px;
+    border-radius: 14px;
     transform: none !important;
-    scroll-snap-align: start;
   }
-  .reel__file { font-size: 11px; }
-  .reel__name { font-size: 14px; }
+  .reel__file { font-size: clamp(8px, 2.4vw, 11px); }
+  .reel__name { font-size: clamp(11px, 3vw, 14px); }
 
   /* ---- números ---- */
   .proof { margin-top: 22px; border: 0; }
-  .proof__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; padding-top: 0; padding-bottom: 24px; }
+  .proof__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 12px; padding-top: 0; padding-bottom: 24px; }
   .stat__num { font-size: 30px; }
   .stat__label { font-size: 12px; }
 
